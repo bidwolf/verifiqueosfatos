@@ -111,7 +111,7 @@ Onde:
 - `"e"` (opcional) é a errata: um texto não vazio explicando o que foi corrigido, editado no mesmo item do posts.json
 - `"hist"` (opcional) é o histórico de alterações de veredito: array de objetos {"de", "para", "quando", "motivo"}. Nada é apagado; o card mostra a lista
 - `"chk"` (opcional) lista quem checou e quem revisou (logins públicos). Aparece no topo do card
-- `"ia"` (opcional) é true quando o texto foi rascunhado com IA e revisado por pessoas. Aparece no topo do card
+- `"ia"` (opcional) é true quando o texto foi rascunhado com IA. O card mostra "revisado por pessoas" só quando `"chk"` nomeia quem revisou; sem `"chk"`, mostra "revisão humana pendente"
 - `"v0"` e `"c0"` (opcionais) guardam o texto e o selo da checagem como estavam antes de uma revisão pela metodologia; o card mostra em "Checagem original", recolhido
 - `"outras"` (opcional) lista o que agências independentes concluíram sobre a mesma fala: array de {"agencia", "rotulo", "url"}. Aparece após as fontes
 ```

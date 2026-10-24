@@ -263,14 +263,15 @@
     }
 
     // Optional "h" (time of the statement), "a" (topic), "chk" (who checked and reviewed) and "ia"
-    // (drafted with AI, then reviewed), shown on top of the card
+    // (drafted with AI), shown on top of the card. An AI draft only counts as reviewed when "chk"
+    // names who reviewed it (methodology, rule 5); until then the card says the review is pending
     function createMetaHTML(item) {
       const parts = [];
       if (item.h) parts.push(`<time>${escapeHTML(item.h)}</time>`);
       if (item.a) parts.push(`<span>${escapeHTML(item.a)}</span>`);
       const chk = (Array.isArray(item.chk) ? item.chk : []).filter(x => typeof x === 'string' && x.trim());
       if (chk.length) parts.push(`<span class="chk">Checagem e revisão: ${escapeHTML(chk.join(', '))}</span>`);
-      if (item.ia === true) parts.push(`<span class="chk">Rascunho com IA, revisado por pessoas</span>`);
+      if (item.ia === true) parts.push(`<span class="chk">${chk.length ? 'Rascunho com IA, revisado por pessoas' : 'Rascunho com IA · revisão humana pendente'}</span>`);
       return parts.length ? `<div class="meta">${parts.join(' ')}</div>` : '';
     }
 
