@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-static-v21'; // Bump on every asset change so clients update
+const CACHE_NAME = 'pwa-static-v22'; // Bump on every asset change so clients update
 const ASSETS_TO_CACHE = [
   './',
   './normalize.css',
