@@ -59,8 +59,7 @@
     <main class="prose">
 <h1>Metodologia — Verifique os Fatos</h1>
 <blockquote>
-<p>Proposta de metodologia pública, aberta a revisão por qualquer pessoa, para que as checagens deste projeto possam ser <strong>auditadas</strong> por quem discorda delas — de qualquer lado.</p>
-<p>Status: <strong>proposta</strong> (PR). Entra em vigor quando aprovada pelo conselho editorial descrito na seção 2 e passa a valer igualmente para todas as candidaturas.</p>
+<p>Metodologia pública, aberta a revisão por qualquer pessoa, para que as checagens deste projeto possam ser <strong>auditadas</strong> por quem discorda delas — de qualquer lado. Vale igualmente para todas as candidaturas.</p>
 </blockquote>
 <hr>
 <h2>0. Por que uma metodologia</h2>
@@ -127,7 +126,7 @@
 <li><strong>Transcrição integral.</strong> Todo debate é transcrito (ferramenta de reconhecimento de fala sob supervisão humana, como fazem Aos Fatos e g1). A transcrição é publicada.</li>
 <li><strong>Fila completa.</strong> Toda afirmação factual de <strong>todas</strong> as candidaturas entra numa fila pública (<code>fila.json</code>) com: <code>id</code>, candidato, horário, texto literal, tema. Entra na fila <strong>antes</strong> de alguém decidir se vai checar.</li>
 <li><strong>Triagem registrada.</strong> Cada item da fila recebe um de três estados: <em>checada</em>, <em>não verificável</em> (seção 1) ou <em>não checada por falta de tempo</em>. O estado é público. Nada "some".</li>
-<li><strong>Paridade de cobertura.</strong> A meta é checar a mesma <strong>proporção</strong> de afirmações factuais de cada candidatura. Se ao fim do evento a diferença de cobertura passar de 15 pontos percentuais, o relatório explica por quê e o placar (seção 6) é suprimido.</li>
+<li><strong>Paridade de cobertura.</strong> A meta é checar a mesma <strong>proporção</strong> de afirmações factuais de cada candidatura. Se ao fim do evento a diferença de cobertura passar de 15 pontos percentuais, o relatório explica por quê e o painel (seção 6) exibe o aviso de cobertura desigual.</li>
 <li><strong>Ordem neutra.</strong> A fila é trabalhada em ordem cronológica, não por "qual fala rende mais".</li>
 <li><strong>Autoelogio e ataque pesam igual.</strong> "Criamos o MEI" e "Lula é o pai do tigrinho" são ambas afirmações factuais e ambas entram na fila.</li>
 </ol>
@@ -136,7 +135,7 @@
 </blockquote>
 <hr>
 <h2>4. Escala de vereditos</h2>
-<p>A escala atual (Verdadeiro / Falso / Parcial) obriga a jogar coisas muito diferentes no mesmo balde: exagero de 20% e invenção completa viram "Falso"; opinião e promessa viram "Parcial". A proposta é adotar a escala usada pelas agências brasileiras signatárias do IFCN (Lupa, Aos Fatos, Estadão Verifica), que já é familiar ao leitor.</p>
+<p>A escala atual (Verdadeiro / Falso / Parcial) obriga a jogar coisas muito diferentes no mesmo balde: exagero de 20% e invenção completa viram "Falso"; opinião e promessa viram "Parcial". Adotamos a escala usada pelas agências brasileiras signatárias do IFCN (Lupa, Aos Fatos, Estadão Verifica), que já é familiar ao leitor.</p>
 <table>
 <thead>
 <tr>
@@ -239,25 +238,31 @@
 </ol>
 </li>
 <li><strong>Não contam como fonte:</strong> veículos de partido, blogs de militância, sites de campanha ("X mentiu"), redes sociais sem documento anexado, "fontes" sem URL ("G1 – título da matéria" sem link). Isso vale para os dois lados.</li>
-<li><strong>Quem checa abre o link.</strong> A fonte precisa dizer o que a checagem diz que ela diz. Fonte "lembrada" ou sugerida por ferramenta de IA sem conferência não é fonte.</li>
-<li><strong>Uso de IA é declarado.</strong> Ferramentas de IA podem transcrever, organizar a fila e rascunhar texto. <strong>Não publicam.</strong> Todo post rascunhado com IA leva <code>"ia": true</code> e passa pela mesma dupla de revisão. Textos com fontes inventadas são a falha mais comum dessas ferramentas — por isso a regra 4.</li>
+<li><strong>Quem checa abre o link.</strong> A fonte precisa dizer o que a checagem diz que ela diz. Fonte "lembrada" e não conferida não é fonte.</li>
+<li><strong>Quem checou e quem revisou assinam.</strong> Todo post publicado leva em <code>chk</code> os logins públicos de quem checou e de quem revisou.</li>
 </ol>
 <hr>
-<h2>6. Placar ("Fatômetro") e cobertura</h2>
-<p>Um percentual de "verdade" calculado sobre falas <strong>escolhidas à mão</strong> não mede a honestidade do candidato; mede a seleção de quem escolheu. Por isso:</p>
+<h2>6. Fatômetro e painel de cobertura</h2>
+<p>Um percentual de "verdade" calculado sobre falas <strong>escolhidas à mão</strong> não mede só a honestidade do candidato; mede também a seleção de quem escolheu. O site exibe o Fatômetro mesmo assim, porque é o resumo que o leitor procura — mas com regras fixas, públicas e iguais para todos:</p>
 <ol>
-<li><strong>Nenhum percentual único de "verdade" é exibido.</strong></li>
-<li>O que pode ser exibido é a <strong>distribuição de rótulos por candidatura, em números absolutos, lado a lado</strong>, com o total de afirmações factuais registradas na fila e quantas foram checadas (exemplo abaixo).</li>
-<li>O bloco só aparece quando <strong>a cobertura dos dois lados está dentro da faixa da seção 3.4</strong>. Fora dela, aparece o aviso "cobertura desigual — placar suprimido" e o link para a fila.</li>
+<li><strong>Fatômetro.</strong> Para cada candidatura, a posição média na régua, só sobre falas <strong>com veredito</strong>: <em>Verdadeiro</em> vale 1; <em>Falta contexto</em>, <em>Exagerado</em>, <em>Subestimado</em>, <em>Impreciso</em> e <em>Contraditório</em> valem 0,5; <em>Falso</em> e <em>Insustentável</em> valem 0. <em>Não verificável</em> e <em>Em verificação</em> ficam fora da conta. O número de falas com veredito aparece ao lado do nome. A régua é congelada durante o evento (seção 7).</li>
+<li><strong>Painel de cobertura.</strong> Logo abaixo, a <strong>distribuição de rótulos por candidatura, em números absolutos, lado a lado</strong>, com o total de falas checadas e quantas estão sem veredito.</li>
+<li><strong>Tudo ou nada.</strong> Os dois blocos só aparecem quando <strong>todas</strong> as candidaturas têm ao menos 3 falas com veredito; mostrar só uma delas a destacaria.</li>
+<li><strong>Aviso permanente.</strong> O painel traz sempre a nota de que não é um placar de honestidade: a escolha das falas pesa mais que o veredito. Quando a diferença de cobertura entre candidaturas passa de 15 pontos percentuais (seção 3.4), a nota diz isso em destaque, com a proporção.</li>
 <li>O bloco traz <strong>sempre</strong>, logo abaixo, os placares das agências independentes para o mesmo evento (seção 8), com a observação de que os números <strong>não são somáveis</strong> entre fontes porque cada uma usa critérios e amostras próprios.</li>
 <li>A imagem compartilhável (<code>share.js</code>) <strong>não traz percentual</strong>; traz o rótulo da checagem, a fonte e o aviso "checagem revisável".</li>
 </ol>
 <p>Exemplo (números ilustrativos):</p>
-<pre><code>Lula             — 31 afirmações factuais · 24 checadas
-Verdadeiro 10 · Falta contexto 5 · Exagerado 3 · Falso 2 · Não verificável 4
+<pre><code>Fatômetro
+Lula             — 24 falas com veredito · 68%
+Flávio Bolsonaro — 22 falas com veredito · 61%
 
-Flávio Bolsonaro — 29 afirmações factuais · 22 checadas
-Verdadeiro 8 · Falta contexto 6 · Exagerado 4 · Falso 3 · Não verificável 1
+Painel de cobertura
+Lula             — 24 falas checadas · 4 sem veredito
+Verdadeiro 10 · Falta contexto 5 · Exagerado 3 · Falso 2
+
+Flávio Bolsonaro — 22 falas checadas · 1 sem veredito
+Verdadeiro 8 · Falta contexto 6 · Exagerado 4 · Falso 3
 </code></pre>
 <hr>
 <h2>7. Processo durante um evento ao vivo</h2>
@@ -320,7 +325,7 @@ Verdadeiro 8 · Falta contexto 6 · Exagerado 4 · Falso 3 · Não verificável 
 <li>Licença dos dados: CC BY 4.0 — qualquer pessoa pode reutilizar, inclusive para auditar este projeto.</li>
 </ul>
 <hr>
-<h2>12. Mudanças propostas no esquema de <code>posts.json</code></h2>
+<h2>12. Esquema de <code>posts.json</code></h2>
 <pre><code class="language-json">{
   &quot;id&quot;: 12,
   &quot;n&quot;: 2,
@@ -333,11 +338,10 @@ Verdadeiro 8 · Falta contexto 6 · Exagerado 4 · Falso 3 · Não verificável 
   &quot;s&quot;: [&quot;https://portal.tcu.gov.br/...&quot;],
   &quot;e&quot;: &quot;Rótulo alterado de Parcial para Falta contexto após revisão.&quot;,
   &quot;hist&quot;: [{ &quot;de&quot;: &quot;parcial&quot;, &quot;para&quot;: &quot;falta_contexto&quot;, &quot;quando&quot;: &quot;2026-10-23T23:12-03:00&quot;, &quot;motivo&quot;: &quot;fonte do TCU especifica o período&quot; }],
-  &quot;chk&quot;: [&quot;@checador&quot;, &quot;@revisor&quot;],
-  &quot;ia&quot;: true
+  &quot;chk&quot;: [&quot;@checador&quot;, &quot;@revisor&quot;]
 }
 </code></pre>
-<p>Campos novos: <code>r</code> (rótulo detalhado), <code>hist</code> (histórico de alterações), <code>chk</code> (quem checou e revisou, logins públicos), <code>ia</code> (rascunho com IA). Campo <code>c</code> ganha os valores <code>4</code> (não verificável) e <code>0</code> (em verificação); <code>index.html</code> passa a renderizá-los com os textos "Não verificável" e "Em verificação", sem cor de veredito.</p>
+<p>Campos novos: <code>r</code> (rótulo detalhado), <code>hist</code> (histórico de alterações), <code>chk</code> (quem checou e revisou, logins públicos). Campo <code>c</code> ganha os valores <code>4</code> (não verificável) e <code>0</code> (em verificação); <code>index.html</code> passa a renderizá-los com os textos "Não verificável" e "Em verificação", sem cor de veredito.</p>
 <p>Validador: <code>s</code> obrigatório para <code>c ∈ {1,2,3}</code>; <code>id</code> obrigatório e único (já exigido hoje — e hoje nenhum post tem, o que mantém o CI quebrado); <code>r</code> obrigatório e dentro da lista da seção 4.</p>
 <hr>
 <h2>13. Checklist antes de publicar</h2>

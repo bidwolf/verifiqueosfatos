@@ -12,7 +12,7 @@ Como as falas são escolhidas, classificadas, revisadas e contestadas está em [
 - **Escala**: Verdadeiro · Falta contexto · Exagerado · Subestimado · Impreciso · Contraditório · Insustentável · Falso · Não verificável · Em verificação (campo `r`). Exagero não é mentira; opinião e promessa não recebem veredito.
 - **Fonte com link obrigatória** (campo `s`) em toda checagem nova com veredito. Negativa do interessado não refuta nada.
 - **Nada é apagado**: mudanças de veredito ficam no campo `hist` e aparecem no card; retiradas viram `c: 0` com `e`.
-- **Sem percentual de "verdade"**: o painel mostra contagens absolutas lado a lado e some quando a cobertura entre candidatos fica desigual.
+- **Fatômetro e painel de cobertura**: o Fatômetro mostra a posição média de cada candidatura na régua (só falas com veredito) e o painel mostra as contagens absolutas por rótulo, lado a lado, sempre com o aviso de que a escolha das falas pesa mais que o veredito.
 - **Checagens de agências independentes** para o mesmo evento ficam em `externas.json` e aparecem abaixo das checagens (ver [`OUTRAS-CHECAGENS.md`](OUTRAS-CHECAGENS.md)).
 - **Contestação**: todo card tem "Contestar esta checagem", que abre uma issue a partir de `.github/ISSUE_TEMPLATE/contestar-checagem.yml`.
 
@@ -90,8 +90,7 @@ Este arquivo deve servir um Array de objetos com a seguinte estrutura:
     "s": ["https://www.ibge.gov.br/", "https://www.bcb.gov.br/"],
     "e": "Rótulo alterado após revisão.",
     "hist": [{ "de": "parcial", "para": "falta_contexto", "quando": "2026-10-23T23:12-03:00", "motivo": "fonte do TCU especifica o período" }],
-    "chk": ["@quem-checou", "@quem-revisou"],
-    "ia": false
+    "chk": ["@quem-checou", "@quem-revisou"]
   }
 ]
 ```
@@ -111,7 +110,6 @@ Onde:
 - `"e"` (opcional) é a errata: um texto não vazio explicando o que foi corrigido, editado no mesmo item do posts.json
 - `"hist"` (opcional) é o histórico de alterações de veredito: array de objetos {"de", "para", "quando", "motivo"}. Nada é apagado; o card mostra a lista
 - `"chk"` (opcional) lista quem checou e quem revisou (logins públicos). Aparece no topo do card
-- `"ia"` (opcional) é true quando o texto foi rascunhado com IA. O card mostra "revisado por pessoas" só quando `"chk"` nomeia quem revisou; sem `"chk"`, mostra "revisão humana pendente"
 - `"v0"` e `"c0"` (opcionais) guardam o texto e o selo da checagem como estavam antes de uma revisão pela metodologia; o card mostra em "Checagem original", recolhido
 - `"outras"` (opcional) lista o que agências independentes concluíram sobre a mesma fala: array de {"agencia", "rotulo", "url"}. Aparece após as fontes
 ```

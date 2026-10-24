@@ -1,8 +1,6 @@
 # Metodologia — Verifique os Fatos
 
-> Proposta de metodologia pública, aberta a revisão por qualquer pessoa, para que as checagens deste projeto possam ser **auditadas** por quem discorda delas — de qualquer lado.
->
-> Status: **proposta** (PR). Entra em vigor quando aprovada pelo conselho editorial descrito na seção 2 e passa a valer igualmente para todas as candidaturas.
+> Metodologia pública, aberta a revisão por qualquer pessoa, para que as checagens deste projeto possam ser **auditadas** por quem discorda delas — de qualquer lado. Vale igualmente para todas as candidaturas.
 
 ---
 
@@ -65,7 +63,7 @@ Regras:
 1. **Transcrição integral.** Todo debate é transcrito (ferramenta de reconhecimento de fala sob supervisão humana, como fazem Aos Fatos e g1). A transcrição é publicada.
 2. **Fila completa.** Toda afirmação factual de **todas** as candidaturas entra numa fila pública (`fila.json`) com: `id`, candidato, horário, texto literal, tema. Entra na fila **antes** de alguém decidir se vai checar.
 3. **Triagem registrada.** Cada item da fila recebe um de três estados: *checada*, *não verificável* (seção 1) ou *não checada por falta de tempo*. O estado é público. Nada "some".
-4. **Paridade de cobertura.** A meta é checar a mesma **proporção** de afirmações factuais de cada candidatura. Se ao fim do evento a diferença de cobertura passar de 15 pontos percentuais, o relatório explica por quê e o placar (seção 6) é suprimido.
+4. **Paridade de cobertura.** A meta é checar a mesma **proporção** de afirmações factuais de cada candidatura. Se ao fim do evento a diferença de cobertura passar de 15 pontos percentuais, o relatório explica por quê e o painel (seção 6) exibe o aviso de cobertura desigual.
 5. **Ordem neutra.** A fila é trabalhada em ordem cronológica, não por "qual fala rende mais".
 6. **Autoelogio e ataque pesam igual.** "Criamos o MEI" e "Lula é o pai do tigrinho" são ambas afirmações factuais e ambas entram na fila.
 
@@ -75,7 +73,7 @@ Regras:
 
 ## 4. Escala de vereditos
 
-A escala atual (Verdadeiro / Falso / Parcial) obriga a jogar coisas muito diferentes no mesmo balde: exagero de 20% e invenção completa viram "Falso"; opinião e promessa viram "Parcial". A proposta é adotar a escala usada pelas agências brasileiras signatárias do IFCN (Lupa, Aos Fatos, Estadão Verifica), que já é familiar ao leitor.
+A escala atual (Verdadeiro / Falso / Parcial) obriga a jogar coisas muito diferentes no mesmo balde: exagero de 20% e invenção completa viram "Falso"; opinião e promessa viram "Parcial". Adotamos a escala usada pelas agências brasileiras signatárias do IFCN (Lupa, Aos Fatos, Estadão Verifica), que já é familiar ao leitor.
 
 | Rótulo | `c` | `r` | Quando usar | Exemplo de cada lado (23/10/2026) |
 |---|---|---|---|---|
@@ -108,29 +106,35 @@ Regras de aplicação:
     2. Checagem publicada por agência signatária do IFCN ou coalizão jornalística (Lupa, Aos Fatos, Estadão Verifica, UOL Confere, AFP Checamos, Comprova, g1 Fato ou Fake).
     3. Reportagem de veículo com redação e política de correção identificáveis.
 3. **Não contam como fonte:** veículos de partido, blogs de militância, sites de campanha ("X mentiu"), redes sociais sem documento anexado, "fontes" sem URL ("G1 – título da matéria" sem link). Isso vale para os dois lados.
-4. **Quem checa abre o link.** A fonte precisa dizer o que a checagem diz que ela diz. Fonte "lembrada" ou sugerida por ferramenta de IA sem conferência não é fonte.
-5. **Uso de IA é declarado.** Ferramentas de IA podem transcrever, organizar a fila e rascunhar texto. **Não publicam.** Todo post rascunhado com IA leva `"ia": true` e passa pela mesma dupla de revisão. Textos com fontes inventadas são a falha mais comum dessas ferramentas — por isso a regra 4.
+4. **Quem checa abre o link.** A fonte precisa dizer o que a checagem diz que ela diz. Fonte "lembrada" e não conferida não é fonte.
+5. **Quem checou e quem revisou assinam.** Todo post publicado leva em `chk` os logins públicos de quem checou e de quem revisou.
 
 ---
 
-## 6. Placar ("Fatômetro") e cobertura
+## 6. Fatômetro e painel de cobertura
 
-Um percentual de "verdade" calculado sobre falas **escolhidas à mão** não mede a honestidade do candidato; mede a seleção de quem escolheu. Por isso:
+Um percentual de "verdade" calculado sobre falas **escolhidas à mão** não mede só a honestidade do candidato; mede também a seleção de quem escolheu. O site exibe o Fatômetro mesmo assim, porque é o resumo que o leitor procura — mas com regras fixas, públicas e iguais para todos:
 
-1. **Nenhum percentual único de "verdade" é exibido.**
-2. O que pode ser exibido é a **distribuição de rótulos por candidatura, em números absolutos, lado a lado**, com o total de afirmações factuais registradas na fila e quantas foram checadas (exemplo abaixo).
-3. O bloco só aparece quando **a cobertura dos dois lados está dentro da faixa da seção 3.4**. Fora dela, aparece o aviso "cobertura desigual — placar suprimido" e o link para a fila.
-4. O bloco traz **sempre**, logo abaixo, os placares das agências independentes para o mesmo evento (seção 8), com a observação de que os números **não são somáveis** entre fontes porque cada uma usa critérios e amostras próprios.
-5. A imagem compartilhável (`share.js`) **não traz percentual**; traz o rótulo da checagem, a fonte e o aviso "checagem revisável".
+1. **Fatômetro.** Para cada candidatura, a posição média na régua, só sobre falas **com veredito**: *Verdadeiro* vale 1; *Falta contexto*, *Exagerado*, *Subestimado*, *Impreciso* e *Contraditório* valem 0,5; *Falso* e *Insustentável* valem 0. *Não verificável* e *Em verificação* ficam fora da conta. O número de falas com veredito aparece ao lado do nome. A régua é congelada durante o evento (seção 7).
+2. **Painel de cobertura.** Logo abaixo, a **distribuição de rótulos por candidatura, em números absolutos, lado a lado**, com o total de falas checadas e quantas estão sem veredito.
+3. **Tudo ou nada.** Os dois blocos só aparecem quando **todas** as candidaturas têm ao menos 3 falas com veredito; mostrar só uma delas a destacaria.
+4. **Aviso permanente.** O painel traz sempre a nota de que não é um placar de honestidade: a escolha das falas pesa mais que o veredito. Quando a diferença de cobertura entre candidaturas passa de 15 pontos percentuais (seção 3.4), a nota diz isso em destaque, com a proporção.
+5. O bloco traz **sempre**, logo abaixo, os placares das agências independentes para o mesmo evento (seção 8), com a observação de que os números **não são somáveis** entre fontes porque cada uma usa critérios e amostras próprios.
+6. A imagem compartilhável (`share.js`) **não traz percentual**; traz o rótulo da checagem, a fonte e o aviso "checagem revisável".
 
 Exemplo (números ilustrativos):
 
 ```
-Lula             — 31 afirmações factuais · 24 checadas
-Verdadeiro 10 · Falta contexto 5 · Exagerado 3 · Falso 2 · Não verificável 4
+Fatômetro
+Lula             — 24 falas com veredito · 68%
+Flávio Bolsonaro — 22 falas com veredito · 61%
 
-Flávio Bolsonaro — 29 afirmações factuais · 22 checadas
-Verdadeiro 8 · Falta contexto 6 · Exagerado 4 · Falso 3 · Não verificável 1
+Painel de cobertura
+Lula             — 24 falas checadas · 4 sem veredito
+Verdadeiro 10 · Falta contexto 5 · Exagerado 3 · Falso 2
+
+Flávio Bolsonaro — 22 falas checadas · 1 sem veredito
+Verdadeiro 8 · Falta contexto 6 · Exagerado 4 · Falso 3
 ```
 
 ---
@@ -210,7 +214,7 @@ A verificação é lida por quem vota nos dois. Ela convence pelo dado, não pel
 
 ---
 
-## 12. Mudanças propostas no esquema de `posts.json`
+## 12. Esquema de `posts.json`
 
 ```json
 {
@@ -225,12 +229,11 @@ A verificação é lida por quem vota nos dois. Ela convence pelo dado, não pel
   "s": ["https://portal.tcu.gov.br/..."],
   "e": "Rótulo alterado de Parcial para Falta contexto após revisão.",
   "hist": [{ "de": "parcial", "para": "falta_contexto", "quando": "2026-10-23T23:12-03:00", "motivo": "fonte do TCU especifica o período" }],
-  "chk": ["@checador", "@revisor"],
-  "ia": true
+  "chk": ["@checador", "@revisor"]
 }
 ```
 
-Campos novos: `r` (rótulo detalhado), `hist` (histórico de alterações), `chk` (quem checou e revisou, logins públicos), `ia` (rascunho com IA). Campo `c` ganha os valores `4` (não verificável) e `0` (em verificação); `index.html` passa a renderizá-los com os textos "Não verificável" e "Em verificação", sem cor de veredito.
+Campos novos: `r` (rótulo detalhado), `hist` (histórico de alterações), `chk` (quem checou e revisou, logins públicos). Campo `c` ganha os valores `4` (não verificável) e `0` (em verificação); `index.html` passa a renderizá-los com os textos "Não verificável" e "Em verificação", sem cor de veredito.
 
 Validador: `s` obrigatório para `c ∈ {1,2,3}`; `id` obrigatório e único (já exigido hoje — e hoje nenhum post tem, o que mantém o CI quebrado); `r` obrigatório e dentro da lista da seção 4.
 

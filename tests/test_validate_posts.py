@@ -157,7 +157,7 @@ class ValidatePostsTests(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertTrue(any("[0].s:" in warning for warning in warnings))
 
-    def test_accepts_history_reviewers_and_ai_flag(self) -> None:
+    def test_accepts_history_and_reviewers(self) -> None:
         post = {
             "id": 1,
             "n": 2,
@@ -168,7 +168,6 @@ class ValidatePostsTests(unittest.TestCase):
             "s": ["https://example.com"],
             "hist": [{"de": "parcial", "para": "falta_contexto", "quando": "2026-10-23T23:12-03:00", "motivo": "fonte"}],
             "chk": ["@a", "@b"],
-            "ia": True,
         }
         self.assertEqual(self.validate_value([post]), [])
 
@@ -202,8 +201,6 @@ class ValidatePostsTests(unittest.TestCase):
             ("chk", []),
             ("chk", ["@a", ""]),
             ("chk", "@a"),
-            ("ia", "sim"),
-            ("ia", 1),
         )
         for field, value in bad_values:
             with self.subTest(field=field, value=value):

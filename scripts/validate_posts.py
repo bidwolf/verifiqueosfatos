@@ -7,7 +7,7 @@ Rules follow METODOLOGIA.md (sections 4, 5, 7 and 12):
 - "r" (optional, recommended) is the detailed label and must belong to the family of "c".
 - Posts in the new scheme (those with "r") that carry a verdict (c in 1, 2, 3) must cite at least
   one http(s) source in "s". Legacy posts without "r" only get a warning for a missing source.
-- "hist" records every change of verdict; "chk" lists who checked and reviewed; "ia" flags AI drafts.
+- "hist" records every change of verdict; "chk" lists who checked and reviewed.
 """
 
 from __future__ import annotations
@@ -157,9 +157,6 @@ def check(path: Path) -> tuple[list[str], list[str]]:
             reviewers = post["chk"]
             if not isinstance(reviewers, list) or not reviewers or not all(non_empty_string(x) for x in reviewers):
                 errors.append(f"{location}.chk: expected a non-empty array of names")
-
-        if "ia" in post and type(post["ia"]) is not bool:
-            errors.append(f"{location}.ia: expected true or false")
 
         # Review trail: the check as it was before a methodology review
         if "v0" in post and not non_empty_string(post["v0"]):
