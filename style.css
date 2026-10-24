@@ -244,6 +244,9 @@ main.loading:empty::after {
 [data-c="1"] { --tone: #15803D; }
 [data-c="2"] { --tone: #B91C1C; }
 [data-c="3"] { --tone: #C2410C; }
+/* Sem veredito (não verificável, em verificação): tom neutro, sem cor de julgamento */
+[data-c="0"],
+[data-c="4"] { --tone: #6B7280; }
 
 .label {
   display: block;
@@ -326,16 +329,79 @@ main.loading:empty::after {
   outline-offset: 2px;
 }
 
+/* Histórico de alterações de veredito (campo opcional "hist"): nada é apagado, só registrado */
+.hist {
+  margin: 0 0 22px;
+  padding: 0 0 0 18px;
+  color: var(--ink2);
+  font-size: 14px;
+}
+
+.hist time {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Checagem original antes da revisão (campos opcionais "v0"/"c0"), recolhida por padrão */
+.orig {
+  margin: 0 0 22px;
+  font-size: 14px;
+}
+
+.orig summary {
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.orig p {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  background: var(--soft);
+  border-left: 3px solid var(--line2);
+  color: var(--ink2);
+}
+
+/* O que outras agências concluíram sobre a mesma fala (campo opcional "outras") */
+.outras {
+  margin: 0 0 4px;
+  padding: 0 0 0 18px;
+  color: var(--ink2);
+  font-size: 14px;
+}
+
+.outras a {
+  color: var(--link);
+}
+
+.sources + .label {
+  margin-top: 18px;
+}
+
+/* Quem checou/revisou e aviso de rascunho com IA (campos opcionais "chk" e "ia"), na linha de meta */
+.meta .chk {
+  flex-basis: 100%;
+}
+
+/* "Contestar esta checagem": abre uma issue a partir do template, com o id do post */
+.contest {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.contest::after {
+  content: ' \2197';
+}
+
 .card.shared {
   border-color: var(--ink);
   box-shadow: 0 0 0 1px var(--ink);
 }
 
-.thermo {
-  display: grid;
-  grid-template-columns: 32px auto 1fr auto;
-  align-items: center;
-  gap: 12px;
+/* Painel de cobertura e bloco de checagens externas: contagens absolutas, lado a lado, sem percentual */
+.panel,
+.externas {
   margin-bottom: 20px;
   padding: 18px;
   background: var(--surface);
@@ -343,80 +409,116 @@ main.loading:empty::after {
   border-radius: 12px;
 }
 
-.thermo[hidden] {
+.panel[hidden],
+.externas[hidden] {
   display: none;
 }
 
-.thermo h3 {
-  grid-column: 1 / -1;
-  margin: 0;
+.panel h3,
+.externas h3 {
+  margin: 0 0 12px;
   font-size: 15px;
   font-weight: 600;
 }
 
-.thermo-rows,
-.thermo-row {
-  display: contents;
+.panel-row {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
 }
 
-.thermo-row img {
+.panel-row img {
   border-radius: 8px;
   object-fit: cover;
 }
 
-.thermo-name {
+.panel-name {
   display: flex;
   flex-direction: column;
   font-size: 15px;
   font-weight: 600;
 }
 
-.thermo-name small {
+.panel-name small {
   color: var(--muted);
   font-size: 12px;
   font-weight: 400;
 }
 
-.thermo-bar {
-  position: relative;
-  height: 10px;
-  background: linear-gradient(to right, #B91C1C, #EAB308, #15803D);
-  border-radius: 99px;
-}
-
-.thermo-bar span {
-  position: absolute;
-  top: 50%;
-  width: 18px;
-  height: 18px;
-  background: var(--surface);
-  border: 3px solid var(--ink);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: left .6s ease;
-}
-
-.thermo-pct {
-  min-width: 4ch;
-  font-size: 15px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  text-align: right;
-}
-
-.thermo-scale {
-  grid-column: 3;
+.panel-counts {
+  grid-column: 1 / -1;
   display: flex;
-  justify-content: space-between;
-  margin-top: -4px;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.panel-counts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border: 1px solid var(--line2);
+  border-left: 4px solid var(--tone, var(--line2));
+  border-radius: 8px;
+  color: var(--ink2);
+  font-size: 13px;
+}
+
+.panel-counts b {
+  font-variant-numeric: tabular-nums;
+}
+
+.panel-note,
+.aviso,
+.ext-foot {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.panel.uneven .panel-note {
+  color: var(--ink2);
+}
+
+.panel-note a,
+.aviso a,
+.ext-foot a,
+.how a {
+  color: var(--link);
+}
+
+.aviso {
+  margin: 0 0 8px;
+}
+
+.externas {
+  margin-top: 32px;
+}
+
+.ext summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  padding: 10px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ext summary small {
   color: var(--muted);
   font-size: 12px;
+  font-weight: 400;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .thermo-bar span {
-    transition: none;
-  }
+.ext .panel-row:first-of-type {
+  border-top: 0;
 }
 
 @media (max-width: 600px) {
@@ -438,18 +540,14 @@ main.loading:empty::after {
   }
 
   .card,
-  .thermo {
+  .panel,
+  .externas {
     padding: 12px;
     border-radius: 10px;
   }
 
-  .thermo {
-    gap: 8px;
+  .panel {
     margin-bottom: 16px;
-  }
-
-  .thermo-scale span:nth-child(2) {
-    visibility: hidden;
   }
 
   .card header {

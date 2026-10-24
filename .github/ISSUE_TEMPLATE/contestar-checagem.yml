@@ -1,0 +1,61 @@
+name: Contestar uma checagem
+description: Use este formulário para contestar o veredito, o texto ou a fonte de uma checagem publicada. Vale para qualquer candidatura e para qualquer pessoa — cidadão ou campanha.
+title: "[Contestação] id <número>: <resumo em uma linha>"
+labels: ["contestação", "aguardando revisão"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar a corrigir. A resposta é pública nesta issue e, se houver mudança, fica registrada no histórico do post (`hist`). Prazo de resposta em período eleitoral: 24 horas.
+        Regra básica: contestação **com fonte** que mostre erro gera correção; contestação **sem fonte** recebe resposta explicando o que faltou.
+  - type: input
+    id: post
+    attributes:
+      label: id do post
+      description: O número que aparece no link de compartilhar (ex.: /#c12 → 12).
+      placeholder: "12"
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: O que você contesta?
+      options:
+        - O veredito (rótulo) está errado
+        - A fala foi transcrita de forma diferente do que foi dito
+        - A fonte não diz o que a verificação afirma
+        - Falta contexto que muda a leitura
+        - A linguagem não é imparcial (adjetivo, ironia, atribuição de intenção)
+        - A fala não deveria ter sido checada (opinião, promessa, previsão)
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: argumento
+    attributes:
+      label: Por que está errado
+      description: Diga o que deveria constar e, se for o caso, qual rótulo da escala (METODOLOGIA.md, seção 4) seria o correto.
+    validations:
+      required: true
+  - type: textarea
+    id: fontes
+    attributes:
+      label: Fontes (links)
+      description: Uma URL por linha. Dados oficiais, inteiro teor de lei ou decisão, agências de checagem e reportagens com redação identificável. Veículos de partido, blogs de militância e postagens sem documento não são aceitos como fonte (seção 5).
+      placeholder: |
+        https://...
+        https://...
+  - type: checkboxes
+    id: declaracoes
+    attributes:
+      label: Declarações
+      options:
+        - label: Li a METODOLOGIA.md e minha contestação se refere a uma afirmação factual (não a uma opinião sobre o candidato).
+          required: true
+        - label: Declaro se tenho vínculo com alguma campanha em disputa (indicar abaixo, se houver). Ter vínculo não impede contestar; omitir, sim.
+          required: true
+  - type: input
+    id: vinculo
+    attributes:
+      label: Vínculo com campanha (opcional)
+      placeholder: "Nenhum"

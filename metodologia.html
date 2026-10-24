@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="48x48 32x32 16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/style.css">
+  <meta name="theme-color" content="#FAFAFA">
+  <script>
+    function setTheme(dark) {
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      document.querySelector('meta[name=theme-color]').content = dark ? '#0A0A0A' : '#FAFAFA';
+    }
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem('theme'); } catch {}
+    setTheme(savedTheme ? savedTheme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches);
+  </script>
+  <title>Metodologia — Verifique os Fatos</title>
+  <meta name="description" content="Como as falas são escolhidas, classificadas, revisadas e contestadas no Verifique os Fatos.">
+  <style>
+    /* Prosa do documento: só o necessário por cima do style.css */
+    .prose { max-width: 720px; margin: 0 auto; color: var(--ink2); }
+    .prose h1, .prose h2, .prose h3 { color: var(--ink); line-height: 1.25; }
+    .prose h1 { font: 400 28px/1.2 var(--serif); margin: 0 0 16px; }
+    .prose h2 { font-size: 20px; margin: 40px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .prose h3 { font-size: 16px; margin: 24px 0 8px; }
+    .prose p, .prose li { font-size: 16px; line-height: 1.6; }
+    .prose blockquote { margin: 0 0 20px; padding: 10px 16px; background: var(--soft); border-left: 3px solid var(--line2); }
+    .prose blockquote p { margin: 6px 0; font-size: 15px; }
+    .prose table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 14px; }
+    .prose th, .prose td { padding: 8px 10px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .prose th { background: var(--soft); color: var(--ink); }
+    .prose code { padding: 1px 5px; background: var(--soft); border-radius: 4px; font-size: .92em; }
+    .prose pre { padding: 12px 14px; overflow: auto; background: var(--soft); border-radius: 8px; font-size: 13px; line-height: 1.5; }
+    .prose pre code { padding: 0; background: none; }
+    .prose a { color: var(--link); }
+    .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .prose hr + h2 { border-top: 0; padding-top: 0; margin-top: 0; }
+    .prose ul.task { list-style: none; padding-left: 0; }
+    .back { font-size: 14px; color: var(--link); }
+    @media (max-width: 600px) { .prose table { display: block; overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header class="top">
+      <span class="logo" aria-hidden="true"><img src="/icon.png" alt="" width="40" height="40"></span>
+      <div>
+        <h1>Verifique os Fatos</h1>
+        <p class="sub">Metodologia</p>
+      </div>
+      <a class="github" href="https://github.com/felippe-regazio/verifiqueosfatos/blob/main/METODOLOGIA.md" target="_blank" rel="noopener noreferrer" aria-label="Fonte deste documento no GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/></svg>
+      </a>
+    </header>
+    <p><a class="back" href="/">← Voltar às checagens</a></p>
+    <main class="prose">
+<h1>Metodologia — Verifique os Fatos</h1>
+<blockquote>
+<p>Proposta de metodologia pública, aberta a revisão por qualquer pessoa, para que as checagens deste projeto possam ser <strong>auditadas</strong> por quem discorda delas — de qualquer lado.</p>
+<p>Status: <strong>proposta</strong> (PR). Entra em vigor quando aprovada pelo conselho editorial descrito na seção 2 e passa a valer igualmente para todas as candidaturas.</p>
+</blockquote>
+<hr>
+<h2>0. Por que uma metodologia</h2>
+<p>Uma checagem só vale alguma coisa se a pessoa que não gosta do resultado conseguir ver <em>como</em> ele foi produzido e <em>onde</em> contestar. Hoje o site diz "a mesma régua vale para todos", mas a régua não está escrita, a seleção das falas não é registrada e as mudanças de veredito acontecem sem rastro. Este documento escreve a régua.</p>
+<p>Princípios, em ordem de prioridade quando conflitarem:</p>
+<ol>
+<li><strong>Igualdade de tratamento</strong> — mesma régua, mesma linguagem, mesma cobertura para todas as candidaturas.</li>
+<li><strong>Verificabilidade</strong> — toda checagem aponta para uma fonte que qualquer pessoa consegue abrir.</li>
+<li><strong>Transparência</strong> — o que foi checado, o que ficou de fora, quem checou e o que mudou são públicos.</li>
+<li><strong>Correção</strong> — errar é esperado; esconder o erro não é.</li>
+<li><strong>Participação</strong> — qualquer cidadão pode propor, revisar e contestar.</li>
+<li><strong>Independência</strong> — nenhuma pessoa com vínculo com campanha participa do processo editorial.</li>
+</ol>
+<hr>
+<h2>1. O que é checado e o que não é</h2>
+<p>Só recebem veredito <strong>afirmações factuais</strong>: números, datas, autoria de medidas, ocorrência de eventos, citações atribuídas a alguém.</p>
+<p><strong>Não recebem veredito</strong> (podem ser registradas, com o rótulo <em>Não verificável</em>, mas sem Verdadeiro/Falso):</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Exemplo (debate Globo, 23/10/2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Promessa / intenção</td>
+<td>"Vou ampliar a Zona Franca de Manaus" (Flávio) · "Vamos comprar a dívida das pessoas físicas" (Lula)</td>
+</tr>
+<tr>
+<td>Opinião / previsão</td>
+<td>"A economia verde pode render mais que gado ou café" (Lula) · "Quer expandir a legislação para animais silvestres" (Flávio)</td>
+</tr>
+<tr>
+<td>Juízo de valor, insulto, adjetivo</td>
+<td>"palácio de luxo", "virou as costas", "está tudo mais caro" (sem número)</td>
+</tr>
+<tr>
+<td>Relato pessoal não documentado</td>
+<td>"Meu pai foi salvo graças ao SUS"</td>
+</tr>
+</tbody>
+</table>
+<p>Uma promessa pode conter um <strong>fato embutido</strong> ("vou <em>criar</em> a Casa da Mulher Brasileira" — ela já existe desde 2015). Nesse caso checa-se o fato embutido e o texto da verificação diz exatamente isso: <em>a promessa não é avaliada; o programa citado já existe</em>.</p>
+<p><strong>Mudança de posição</strong> não é mentira. "Sou a favor da tarifa zero" dito por quem antes criticou a tarifa zero é registrado como <strong>Contraditório</strong> (ver escala), com as duas datas e os dois links — não como <em>Falso</em>.</p>
+<hr>
+<h2>2. Governança democrática</h2>
+<h3>2.1 Conselho editorial</h3>
+<ul>
+<li>Mínimo de <strong>5 pessoas</strong>, inscrição aberta via issue, aprovação por maioria simples do conselho atual.</li>
+<li>Cada integrante publica em <code>CONSELHO.md</code> uma <strong>declaração de interesses</strong>: filiação partidária atual ou nos últimos 4 anos, doações a campanhas, trabalho remunerado ou voluntário em campanhas, cargos comissionados. Nada disso impede participar — <strong>esconder</strong> impede.</li>
+<li><strong>Impedimento</strong>: quem trabalha em qualquer campanha em disputa não checa, não revisa e não vota em método enquanto a disputa durar.</li>
+<li>Decisões de método são tomadas por PR neste documento, com <strong>72 horas</strong> de discussão aberta. <strong>Durante um debate a régua está congelada</strong>: nenhuma regra muda no meio do evento.</li>
+</ul>
+<h3>2.2 Duplas plurais</h3>
+<p>Toda checagem passa por <strong>duas pessoas</strong>: quem checa e quem revisa. Sempre que houver gente suficiente, a dupla é formada por pessoas com declarações de interesse diferentes. Um veredito <strong>Falso</strong> ou <strong>Insustentável</strong> exige revisão de duas pessoas além de quem checou.</p>
+<h3>2.3 Retrospectiva pública</h3>
+<p>Até 48 horas depois de cada evento, o conselho publica um <strong>relatório de cobertura</strong> (seção 7) e abre uma issue de retrospectiva para qualquer pessoa comentar. Vereditos contestados nessa janela têm resposta obrigatória.</p>
+<hr>
+<h2>3. Seleção das falas — a maior fonte de viés</h2>
+<p>A assimetria de um "placar" nasce quase sempre <strong>antes</strong> da checagem: na escolha do que checar. Se de um candidato se escolhem só os autoelogios fáceis de confirmar e do outro só os ataques, o resultado está decidido antes de abrir a primeira fonte.</p>
+<p>Regras:</p>
+<ol>
+<li><strong>Transcrição integral.</strong> Todo debate é transcrito (ferramenta de reconhecimento de fala sob supervisão humana, como fazem Aos Fatos e g1). A transcrição é publicada.</li>
+<li><strong>Fila completa.</strong> Toda afirmação factual de <strong>todas</strong> as candidaturas entra numa fila pública (<code>fila.json</code>) com: <code>id</code>, candidato, horário, texto literal, tema. Entra na fila <strong>antes</strong> de alguém decidir se vai checar.</li>
+<li><strong>Triagem registrada.</strong> Cada item da fila recebe um de três estados: <em>checada</em>, <em>não verificável</em> (seção 1) ou <em>não checada por falta de tempo</em>. O estado é público. Nada "some".</li>
+<li><strong>Paridade de cobertura.</strong> A meta é checar a mesma <strong>proporção</strong> de afirmações factuais de cada candidatura. Se ao fim do evento a diferença de cobertura passar de 15 pontos percentuais, o relatório explica por quê e o placar (seção 6) é suprimido.</li>
+<li><strong>Ordem neutra.</strong> A fila é trabalhada em ordem cronológica, não por "qual fala rende mais".</li>
+<li><strong>Autoelogio e ataque pesam igual.</strong> "Criamos o MEI" e "Lula é o pai do tigrinho" são ambas afirmações factuais e ambas entram na fila.</li>
+</ol>
+<blockquote>
+<p>Teste rápido: ao fim do debate, conte quantas afirmações <em>verdadeiras</em> de cada lado foram checadas. Se um lado tem dezenas e o outro quase nenhuma, o problema não é o candidato — é a seleção.</p>
+</blockquote>
+<hr>
+<h2>4. Escala de vereditos</h2>
+<p>A escala atual (Verdadeiro / Falso / Parcial) obriga a jogar coisas muito diferentes no mesmo balde: exagero de 20% e invenção completa viram "Falso"; opinião e promessa viram "Parcial". A proposta é adotar a escala usada pelas agências brasileiras signatárias do IFCN (Lupa, Aos Fatos, Estadão Verifica), que já é familiar ao leitor.</p>
+<table>
+<thead>
+<tr>
+<th>Rótulo</th>
+<th><code>c</code></th>
+<th><code>r</code></th>
+<th>Quando usar</th>
+<th>Exemplo de cada lado (23/10/2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Verdadeiro</strong></td>
+<td>1</td>
+<td><code>verdadeiro</code></td>
+<td>O dado confere com a fonte, no período e na base declarados.</td>
+<td>Lula: "Flávio chamou o Bolsa Família de bolsa-farelo" · Flávio: "A taxa de juros está em torno de 14%" (Selic 13,75%)</td>
+</tr>
+<tr>
+<td><strong>Verdadeiro, mas</strong> (falta contexto)</td>
+<td>3</td>
+<td><code>falta_contexto</code></td>
+<td>O dado confere, mas omite algo que muda a leitura.</td>
+<td>Lula: "BR-319, uma estrada nova" (recuperação de rodovia dos anos 1970) · Flávio: "11.500 obras paradas neste governo" (lista do TCU cobre obras de 2022–24, de todos os entes)</td>
+</tr>
+<tr>
+<td><strong>Exagerado</strong></td>
+<td>3</td>
+<td><code>exagerado</code></td>
+<td>O número existe, mas está inflado.</td>
+<td>Lula: "Acabamos com a fome em 2012" (saída do Mapa da Fome: 2014) · Flávio: "Lula gastou R$ 400 bi para se reeleger" (soma de impacto de medidas, não gasto executado)</td>
+</tr>
+<tr>
+<td><strong>Subestimado</strong></td>
+<td>3</td>
+<td><code>subestimado</code></td>
+<td>O número existe, mas é maior do que o dito.</td>
+<td>Lula: "Herdei 6 mil obras paradas" (TCU: 8,6 mil) · Flávio: "Mais de 40 milhões vivem sob facções" (estimativas de 50–68 mi)</td>
+</tr>
+<tr>
+<td><strong>Impreciso</strong></td>
+<td>3</td>
+<td><code>impreciso</code></td>
+<td>Erro de data, nome, valor ou atribuição que não muda o sentido geral.</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Contraditório</strong></td>
+<td>3</td>
+<td><code>contraditorio</code></td>
+<td>A fala contradiz posição ou fala anterior documentada da mesma pessoa.</td>
+<td>Flávio: "Sou a favor da tarifa zero aos fins de semana" · Lula: "Sou a favor de reduzir a maioridade penal para crimes hediondos" (posição histórica contrária)</td>
+</tr>
+<tr>
+<td><strong>Insustentável</strong></td>
+<td>2</td>
+<td><code>insustentavel</code></td>
+<td>Não há dado público que permita confirmar nem negar. <strong>Não é Falso.</strong></td>
+<td>"O PT entregou nem 30% do que prometeu ao RS" · "Liberaram 1,1 bilhão de balas"</td>
+</tr>
+<tr>
+<td><strong>Falso</strong></td>
+<td>2</td>
+<td><code>falso</code></td>
+<td>Há dado público que contradiz a fala.</td>
+<td>Lula: "O governo Bolsonaro aprovou o tigrinho" (lei de 2018, governo Temer) · Flávio: "Lula é o pai do tigrinho" (idem)</td>
+</tr>
+<tr>
+<td><strong>Não verificável</strong></td>
+<td>4</td>
+<td><code>nao_verificavel</code></td>
+<td>Opinião, promessa, previsão, juízo de valor (seção 1). Sem veredito.</td>
+<td>ver seção 1</td>
+</tr>
+<tr>
+<td><strong>Em verificação</strong></td>
+<td>0</td>
+<td><code>em_verificacao</code></td>
+<td>Fala registrada, checagem em andamento. Sem veredito.</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Regras de aplicação:</p>
+<ul>
+<li><strong>Ônus da prova.</strong> Para marcar <em>Falso</em> é preciso <strong>um dado que contradiga</strong> a fala. Negativa do interessado (advogado, assessoria, o próprio candidato) <strong>não refuta nada</strong> — vira <em>Insustentável</em> ou <em>Em verificação</em>.</li>
+<li><strong>Exagero não é mentira.</strong> 20 anos quando foram 16 é <em>Exagerado</em>. 5 mil quando foram 3,6 mil é <em>Exagerado</em>. A regra é a mesma para os dois lados.</li>
+<li><strong>Citação literal correta é Verdadeiro.</strong> Se a pessoa disse aquilo, está documentado e o sentido não foi distorcido, o veredito é <em>Verdadeiro</em>. Contexto adicional vai no texto, não rebaixa o veredito — e, se a regra for rebaixar com contexto, ela vale para as citações que os dois lados fazem um do outro.</li>
+<li><strong>Declare a base.</strong> Toda checagem numérica diz <strong>série, período e denominador</strong> ("obras federais paralisadas segundo o TCU em ago/2022"; "obras do FNDE em 2022"). Dois números diferentes podem ser ambos verdadeiros em bases diferentes; a checagem explica isso em vez de escolher a base que derruba a fala.</li>
+<li><strong>Compatibilidade.</strong> O campo <code>c</code> continua existindo para o front atual (1 = confere, 2 = não confere, 3 = confere com ressalva, 4 = sem veredito, 0 = em verificação). O campo novo <code>r</code> guarda o rótulo detalhado e passa a ser o que aparece no card.</li>
+</ul>
+<hr>
+<h2>5. Fontes</h2>
+<ol>
+<li><strong>Toda checagem tem pelo menos uma fonte com link</strong>, no campo <code>s</code>. Checagem sem link não é publicada — o validador (<code>scripts/validate_posts.py</code>) passa a exigir <code>s</code> com ao menos uma URL para <code>c</code> em {1, 2, 3}.</li>
+<li><strong>Hierarquia de fontes:</strong><ol>
+<li>Dado primário oficial (IBGE, Banco Central, Tesouro, TCU, DataSUS, FBSP/Atlas da Violência, Diário Oficial, inteiro teor de lei ou decisão).</li>
+<li>Checagem publicada por agência signatária do IFCN ou coalizão jornalística (Lupa, Aos Fatos, Estadão Verifica, UOL Confere, AFP Checamos, Comprova, g1 Fato ou Fake).</li>
+<li>Reportagem de veículo com redação e política de correção identificáveis.</li>
+</ol>
+</li>
+<li><strong>Não contam como fonte:</strong> veículos de partido, blogs de militância, sites de campanha ("X mentiu"), redes sociais sem documento anexado, "fontes" sem URL ("G1 – título da matéria" sem link). Isso vale para os dois lados.</li>
+<li><strong>Quem checa abre o link.</strong> A fonte precisa dizer o que a checagem diz que ela diz. Fonte "lembrada" ou sugerida por ferramenta de IA sem conferência não é fonte.</li>
+<li><strong>Uso de IA é declarado.</strong> Ferramentas de IA podem transcrever, organizar a fila e rascunhar texto. <strong>Não publicam.</strong> Todo post rascunhado com IA leva <code>"ia": true</code> e passa pela mesma dupla de revisão. Textos com fontes inventadas são a falha mais comum dessas ferramentas — por isso a regra 4.</li>
+</ol>
+<hr>
+<h2>6. Placar ("Fatômetro") e cobertura</h2>
+<p>Um percentual de "verdade" calculado sobre falas <strong>escolhidas à mão</strong> não mede a honestidade do candidato; mede a seleção de quem escolheu. Por isso:</p>
+<ol>
+<li><strong>Nenhum percentual único de "verdade" é exibido.</strong></li>
+<li>O que pode ser exibido é a <strong>distribuição de rótulos por candidatura, em números absolutos, lado a lado</strong>, com o total de afirmações factuais registradas na fila e quantas foram checadas (exemplo abaixo).</li>
+<li>O bloco só aparece quando <strong>a cobertura dos dois lados está dentro da faixa da seção 3.4</strong>. Fora dela, aparece o aviso "cobertura desigual — placar suprimido" e o link para a fila.</li>
+<li>O bloco traz <strong>sempre</strong>, logo abaixo, os placares das agências independentes para o mesmo evento (seção 8), com a observação de que os números <strong>não são somáveis</strong> entre fontes porque cada uma usa critérios e amostras próprios.</li>
+<li>A imagem compartilhável (<code>share.js</code>) <strong>não traz percentual</strong>; traz o rótulo da checagem, a fonte e o aviso "checagem revisável".</li>
+</ol>
+<p>Exemplo (números ilustrativos):</p>
+<pre><code>Lula             — 31 afirmações factuais · 24 checadas
+Verdadeiro 10 · Falta contexto 5 · Exagerado 3 · Falso 2 · Não verificável 4
+
+Flávio Bolsonaro — 29 afirmações factuais · 22 checadas
+Verdadeiro 8 · Falta contexto 6 · Exagerado 4 · Falso 3 · Não verificável 1
+</code></pre>
+<hr>
+<h2>7. Processo durante um evento ao vivo</h2>
+<pre><code>transcrição → fila pública (todas as falas factuais)
+   → triagem (verificável? sim / não)
+   → checagem (1 pessoa) → revisão (1–2 pessoas)
+   → publicação com fonte → contestação aberta → errata se preciso
+</code></pre>
+<ul>
+<li><strong>Publica-se só com fonte.</strong> Se a fonte não chega em 20 minutos, o item entra como <em>Em verificação</em> (sem veredito) para o leitor saber que a fala está sendo olhada.</li>
+<li><strong>Nada é apagado.</strong> Um item retirado vira <code>"c": 0</code> com <code>"e"</code> explicando por quê. O histórico fica.</li>
+<li><strong>Toda mudança de veredito</strong> gera uma entrada em <code>"hist"</code> (de → para, horário, motivo) e aparece no card ("alterado de Falso para Exagerado às 23:12 — fonte X mostra …").</li>
+<li><strong>Relatório de cobertura</strong> (até 48 h depois): por candidatura, quantas afirmações factuais, quantas checadas, distribuição de rótulos, tempo médio até publicar, contestações recebidas e aceitas, lista do que ficou de fora.</li>
+</ul>
+<hr>
+<h2>8. Checagens de outras fontes</h2>
+<p>O site exibe, para cada evento, um bloco <strong>"O que as agências independentes concluíram"</strong>, com:</p>
+<ul>
+<li>nome da agência, horário da última atualização que o site consultou, totais por candidatura e por rótulo <strong>como a agência publicou</strong>, link direto;</li>
+<li>aviso fixo: <em>critérios e amostras diferentes; os números não se somam nem se comparam diretamente</em>;</li>
+<li>inclusão <strong>mesmo quando a conclusão da agência contraria a deste site</strong> — isso é parte do controle de qualidade, não um constrangimento.</li>
+</ul>
+<p>Critério de inclusão: signatárias do <a href="https://ifcncodeofprinciples.poynter.org/">IFCN</a> com redação no Brasil e coalizões jornalísticas com método publicado. Critério de exclusão: iniciativas de campanha, partido ou militância, de qualquer lado.</p>
+<p>Os dados ficam em <code>externas.json</code> (ver <code>OUTRAS-CHECAGENS.md</code>), mantido pelo mesmo fluxo de PR.</p>
+<hr>
+<h2>9. Linguagem — guia de estilo imparcial</h2>
+<p>A verificação é lida por quem vota nos dois. Ela convence pelo dado, não pelo tom.</p>
+<p><strong>Estrutura fixa</strong> (até 600 caracteres): 1. Rótulo em uma palavra. 2. O dado, com número, período e base. 3. A fonte (link em <code>s</code>). 4. Contexto, se mudar a leitura.</p>
+<p><strong>Nomes.</strong> Primeira menção: "Lula (PT)" e "Flávio Bolsonaro (PL)". Depois: "Lula" e "Flávio". Nunca "o petista", "o senador", "o ex-presidiário", "o filho". Mesmo tratamento para terceiros citados (Bolsonaro, Tarcísio, Dilma, Temer: nome e cargo à época).</p>
+<p><strong>Proibido:</strong></p>
+<ul>
+<li>adjetivos valorativos ("impressionantes R$ 476 bilhões", "histórico", "polêmico", "esmagadora");</li>
+<li>atribuir intenção ("omite propositalmente", "tenta confundir", "narrativa");</li>
+<li>ironia, ponto de exclamação, perguntas retóricas;</li>
+<li>repetir o ataque de um lado como se fosse a verificação do outro.</li>
+</ul>
+<p><strong>Obrigatório:</strong></p>
+<ul>
+<li>verbos neutros: "disse", "afirmou", "o dado mostra", "a lei estabelece";</li>
+<li>quando a fala for <em>Verdadeira</em>, dizer isso na primeira palavra — para qualquer candidato;</li>
+<li>quando a fala for <em>Falsa</em>, mostrar o dado que a contradiz — não a opinião de quem checou.</li>
+</ul>
+<p><strong>Teste da troca.</strong> Antes de publicar, troque mentalmente o nome do candidato. Se o rótulo, o tom ou a quantidade de contexto mudariam, a checagem não está pronta.</p>
+<hr>
+<h2>10. Contestação e direito de resposta</h2>
+<ul>
+<li>Todo card tem o botão <strong>"Contestar esta checagem"</strong>, que abre uma issue a partir do template (<code>.github/ISSUE_TEMPLATE/contestar-checagem.yml</code>) já com o <code>id</code> do post.</li>
+<li>Campanhas e cidadãos usam o mesmo canal e recebem o mesmo tratamento.</li>
+<li><strong>Prazo de resposta: 24 horas</strong> em período eleitoral. A resposta é pública na issue e, se houver mudança, no <code>hist</code> do post.</li>
+<li>Contestação <strong>com fonte</strong> que mostre erro → correção. Contestação <strong>sem fonte</strong> → resposta explicando o que faltou, sem alteração.</li>
+<li>Ninguém revisa a contestação de uma checagem que fez.</li>
+</ul>
+<hr>
+<h2>11. Dados abertos</h2>
+<ul>
+<li><code>posts.json</code> continua sendo a fonte única do front. Nenhum post é removido do arquivo; retirados viram <code>c: 0</code> + <code>e</code>.</li>
+<li><code>fila.json</code> publica todas as afirmações factuais registradas, inclusive as não checadas.</li>
+<li><code>externas.json</code> publica os placares das agências (seção 8).</li>
+<li>O histórico do git é a trilha de auditoria; o site expõe um link "ver histórico desta checagem" apontando para o <code>git log</code> do item.</li>
+<li>Licença dos dados: CC BY 4.0 — qualquer pessoa pode reutilizar, inclusive para auditar este projeto.</li>
+</ul>
+<hr>
+<h2>12. Mudanças propostas no esquema de <code>posts.json</code></h2>
+<pre><code class="language-json">{
+  &quot;id&quot;: 12,
+  &quot;n&quot;: 2,
+  &quot;c&quot;: 3,
+  &quot;r&quot;: &quot;falta_contexto&quot;,
+  &quot;h&quot;: &quot;21:48&quot;,
+  &quot;a&quot;: &quot;Economia&quot;,
+  &quot;t&quot;: &quot;O Brasil tem 11.500 obras paralisadas atualmente&quot;,
+  &quot;v&quot;: &quot;Falta contexto. O TCU listou cerca de 11,5 mil obras financiadas pela União paralisadas (levantamento de 2024, obras de 2022–24). A maioria é executada por estados e municípios via convênio; a lista não separa o que começou em cada governo.&quot;,
+  &quot;s&quot;: [&quot;https://portal.tcu.gov.br/...&quot;],
+  &quot;e&quot;: &quot;Rótulo alterado de Parcial para Falta contexto após revisão.&quot;,
+  &quot;hist&quot;: [{ &quot;de&quot;: &quot;parcial&quot;, &quot;para&quot;: &quot;falta_contexto&quot;, &quot;quando&quot;: &quot;2026-10-23T23:12-03:00&quot;, &quot;motivo&quot;: &quot;fonte do TCU especifica o período&quot; }],
+  &quot;chk&quot;: [&quot;@checador&quot;, &quot;@revisor&quot;],
+  &quot;ia&quot;: true
+}
+</code></pre>
+<p>Campos novos: <code>r</code> (rótulo detalhado), <code>hist</code> (histórico de alterações), <code>chk</code> (quem checou e revisou, logins públicos), <code>ia</code> (rascunho com IA). Campo <code>c</code> ganha os valores <code>4</code> (não verificável) e <code>0</code> (em verificação); <code>index.html</code> passa a renderizá-los com os textos "Não verificável" e "Em verificação", sem cor de veredito.</p>
+<p>Validador: <code>s</code> obrigatório para <code>c ∈ {1,2,3}</code>; <code>id</code> obrigatório e único (já exigido hoje — e hoje nenhum post tem, o que mantém o CI quebrado); <code>r</code> obrigatório e dentro da lista da seção 4.</p>
+<hr>
+<h2>13. Checklist antes de publicar</h2>
+<ul>
+<li>☐ A fala está na fila com horário e texto literal?</li>
+<li>☐ É uma afirmação factual (não opinião, promessa ou previsão)?</li>
+<li>☐ O rótulo é o mais específico da escala (não "Falso" para exagero; não "Parcial" para citação correta)?</li>
+<li>☐ Série, período e base estão declarados?</li>
+<li>☐ Há pelo menos um link em <code>s</code> que <strong>eu abri</strong> e que diz o que estou dizendo?</li>
+<li>☐ A fonte é aceita pela seção 5 (nada partidário, nada sem URL)?</li>
+<li>☐ O texto segue a estrutura e o guia de estilo da seção 9?</li>
+<li>☐ Passou no teste da troca?</li>
+<li>☐ Teve revisão de pelo menos uma outra pessoa (duas, se <em>Falso</em> ou <em>Insustentável</em>)?</li>
+<li>☐ Se altera um post existente, <code>hist</code> e <code>e</code> foram preenchidos?</li>
+</ul>
+<hr>
+<h2>14. O que esta metodologia <strong>não</strong> resolve</h2>
+<ul>
+<li>Não garante que o conselho seja plural se só um campo político se inscrever — por isso a declaração de interesses é pública e o relatório de cobertura mostra, em número, quem está sendo checado e quanto.</li>
+<li>Não substitui as agências profissionais; o bloco da seção 8 existe para que o leitor compare.</li>
+<li>Não elimina erro em tempo real. Elimina erro <strong>escondido</strong>.</li>
+</ul>
+    </main>
+    <footer class="foot">
+      <p>Um projeto feito pela comunidade para a comunidade. Este documento é editado por pull request; qualquer pessoa pode propor mudanças.</p>
+    </footer>
+  </div>
+</body>
+</html>

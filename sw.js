@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-static-v19'; // Bump on every asset change so clients update
+const CACHE_NAME = 'pwa-static-v20'; // Bump on every asset change so clients update
 const ASSETS_TO_CACHE = [
   './',
   './normalize.css',
@@ -45,8 +45,8 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // posts.json is never cached: not calling respondWith lets the browser handle it untouched
-  if (event.request.method !== 'GET' || url.pathname.endsWith('/posts.json')) return;
+  // posts.json and externas.json are never cached: not calling respondWith lets the browser handle them untouched
+  if (event.request.method !== 'GET' || url.pathname.endsWith('/posts.json') || url.pathname.endsWith('/externas.json')) return;
 
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true })

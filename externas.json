@@ -1,0 +1,42 @@
+{
+  "evento": "Debate TV Globo — 2º turno",
+  "data": "2026-10-23",
+  "aviso": "Cada agência escolhe suas próprias falas e usa sua própria escala. Os números abaixo são os que cada uma publicou: não se somam nem se comparam diretamente entre si, nem com as checagens deste site.",
+  "fontes": [
+    {
+      "agencia": "Agência Lupa",
+      "ifcn": true,
+      "url": "https://www.agencialupa.org/checagem/2026/10/23/ao-vivo-checagem-do-ultimo-debate-entre-lula-e-flavio-bolsonaro-no-segundo-turno/",
+      "consultado_em": "2026-10-24T00:25:00-03:00",
+      "atualizado_em": "2026-10-23T23:45:00-03:00",
+      "escala": ["verdadeiro", "falta_contexto", "exagerado", "subestimado", "falso"],
+      "por_candidato": {
+        "1": { "checadas": 10, "verdadeiro": 4, "falta_contexto": 2, "exagerado": 1, "subestimado": 1, "falso": 2 },
+        "2": { "checadas": 15, "verdadeiro": 4, "falta_contexto": 4, "exagerado": 3, "subestimado": 0, "falso": 4 }
+      }
+    },
+    {
+      "agencia": "Aos Fatos",
+      "ifcn": true,
+      "url": "https://www.aosfatos.org/noticias/checamos-flavio-bolsonaro-lula-debate-globo/",
+      "consultado_em": "2026-10-24T00:25:00-03:00",
+      "status": "em_atualizacao"
+    },
+    {
+      "agencia": "Estadão Verifica",
+      "ifcn": true,
+      "url": "https://www.terra.com.br/noticias/brasil/politica/estadao-verifica-vai-checar-debate-da-globo-ao-vivo-acompanhe,5d669474fb180cd0b8cb2200e7c88ab6w6y8500d.html",
+      "consultado_em": "2026-10-24T00:30:00-03:00",
+      "status": "reconsultar",
+      "escala": ["verdadeiro", "falta_contexto", "exagerado", "subestimado", "impreciso", "enganoso", "falso"]
+    },
+    {
+      "agencia": "g1 Fato ou Fake",
+      "ifcn": false,
+      "url": "https://www.gazetadopovo.com.br/eleicoes/2026/globo-anuncia-checagem-falas-lula-flavio-durante-debate-nos-canais-digitais/",
+      "consultado_em": "2026-10-24T00:30:00-03:00",
+      "status": "reconsultar",
+      "escala": ["fato", "nao_e_bem_assim", "fake"]
+    }
+  ]
+}

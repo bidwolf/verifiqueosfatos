@@ -45,7 +45,7 @@
   <div class="layout">
     <header class="top">
       <span class="logo" aria-hidden="true">
-        <img src="/icon.png" alt="" width="40" height="40" />  
+        <img src="/icon.png" alt="" width="40" height="40" />
       </span>
       <div>
         <h1>Verifique os Fatos</h1>
@@ -60,27 +60,40 @@
       </button>
     </header>
 
-    <section class="thermo" aria-labelledby="thermo-title" hidden>
-      <h3 id="thermo-title">Fatômetro</h3>
-      <div class="thermo-rows"></div>
-      <div class="thermo-scale" aria-hidden="true"><span>Falso</span><span>Parcial</span><span>Verdadeiro</span></div>
+    <!-- Painel de cobertura: contagens absolutas por candidato, nunca um percentual de "verdade".
+         Some quando a cobertura entre candidatos está desigual (METODOLOGIA.md, seção 6). -->
+    <section class="panel" aria-labelledby="panel-title" hidden>
+      <h3 id="panel-title">Painel de cobertura</h3>
+      <div class="panel-rows"></div>
+      <p class="panel-note"></p>
     </section>
 
     <main class="article-grid loading"></main>
+
+    <!-- Checagens de agências independentes para o mesmo evento (externas.json; METODOLOGIA.md, seção 8) -->
+    <section class="externas" aria-labelledby="externas-title" hidden>
+      <h3 id="externas-title">O que as agências independentes concluíram</h3>
+      <p class="aviso"></p>
+      <div class="externas-rows"></div>
+    </section>
 
     <footer class="foot">
       <details class="how">
         <summary>Como classificamos as falas</summary>
         <dl>
           <dt><span class="badge" data-c="1">Verdadeiro</span></dt>
-          <dd>A fala confere com os dados de fontes públicas e confiáveis.</dd>
+          <dd>O dado confere com a fonte, no período e na base declarados.</dd>
+          <dt><span class="badge" data-c="3">Falta contexto</span></dt>
+          <dd>Confere, mas omite algo que muda a leitura. Na mesma família: <b>Exagerado</b>, <b>Subestimado</b>, <b>Impreciso</b> e <b>Contraditório</b> (a fala contradiz posição anterior documentada). Checagens antigas usam o selo <b>Parcial</b>.</dd>
           <dt><span class="badge" data-c="2">Falso</span></dt>
-          <dd>A fala contradiz os dados disponíveis.</dd>
-          <dt><span class="badge" data-c="3">Parcial</span></dt>
-          <dd>Parte da fala confere, mas há exagero, imprecisão ou falta de contexto.</dd>
+          <dd>Há dado público que contradiz a fala. <b>Insustentável</b>: não há dado público que confirme nem negue — não é o mesmo que falso.</dd>
+          <dt><span class="badge" data-c="4">Não verificável</span></dt>
+          <dd>Opinião, promessa ou previsão. Fica registrada, sem veredito.</dd>
+          <dt><span class="badge" data-c="0">Em verificação</span></dt>
+          <dd>Fala registrada, checagem em andamento.</dd>
         </dl>
-        <p>A mesma régua vale para todos os candidatos. Só classificamos o que pode ser conferido com dados: opiniões ficam de fora. Cada verificação explica o que foi conferido e onde.</p>
-        <p>As checagens são feitas ao vivo, durante o debate, e podem ser revisadas.</p>
+        <p>A mesma régua vale para todos os candidatos. Só classificamos o que pode ser conferido com dados; toda checagem traz a fonte, e qualquer pessoa pode contestar pelo botão do card.</p>
+        <p>As checagens são feitas ao vivo, durante o debate, e podem ser revisadas — as alterações ficam registradas no próprio card. Leia a <a href="/metodologia.html">metodologia completa</a>.</p>
       </details>
       <p>Um projeto feito pela comunidade para a comunidade.</p>
     </footer>
@@ -123,17 +136,35 @@
   <!-- SHARE: fim -->
 
   <script>
+    const REPO = 'https://github.com/felippe-regazio/verifiqueosfatos';
+
     const labels = {
       // name
       n: {
         1: 'Lula',
         2: 'Flávio',
       },
-      // checks
+      // short seal by "c" (kept for posts that predate the detailed label)
       c: {
+        0: 'Em verificação',
         1: 'Verdadeiro',
         2: 'Falso',
-        3: 'Parcial'
+        3: 'Parcial',
+        4: 'Não verificável'
+      },
+      // detailed label "r" (METODOLOGIA.md, section 4): [text, the "c" it belongs to].
+      // Order here is the display order in the coverage panel.
+      r: {
+        verdadeiro:      ['Verdadeiro', 1],
+        falta_contexto:  ['Falta contexto', 3],
+        exagerado:       ['Exagerado', 3],
+        subestimado:     ['Subestimado', 3],
+        impreciso:       ['Impreciso', 3],
+        contraditorio:   ['Contraditório', 3],
+        insustentavel:   ['Insustentável', 2],
+        falso:           ['Falso', 2],
+        nao_verificavel: ['Não verificável', 4],
+        em_verificacao:  ['Em verificação', 0],
       },
       // images
       i: {
@@ -151,6 +182,18 @@
     let unseen = 0;
     let currentPosts = [];
 
+    // Text shown on the badge: the detailed label when present, else the legacy seal
+    function labelText(item) {
+      return (labels.r[item.r] && labels.r[item.r][0]) || labels.c[item.c] || '?';
+    }
+
+    // Turns a label key, a "c" number or free text into display text (used by the change history)
+    function labelOf(x) {
+      if (labels.r[x]) return labels.r[x][0];
+      if (labels.c[x] !== undefined) return labels.c[x];
+      return x == null ? '' : String(x);
+    }
+
     function createFixHTML(fix) {
       return typeof fix === 'string' && fix.trim() ? `<span class="label">Correção:</span><p class="fix">${escapeHTML(fix)}</p>` : '';
     }
@@ -163,17 +206,71 @@
       return links.length ? `<span class="label">Fontes:</span><ul class="sources">${links.join('')}</ul>` : '';
     }
 
+    // Optional "hist": every change of verdict stays visible on the card (METODOLOGIA.md, section 7)
+    function createHistHTML(hist) {
+      const rows = (Array.isArray(hist) ? hist : [])
+        .filter(h => h && typeof h === 'object')
+        .map(h => {
+          const when = formatWhen(h.quando);
+          return `<li>${when ? `<time datetime="${escapeHTML(h.quando)}">${escapeHTML(when)}</time> ` : ''}` +
+            `${escapeHTML(labelOf(h.de))} → ${escapeHTML(labelOf(h.para))}` +
+            `${h.motivo ? ` — ${escapeHTML(h.motivo)}` : ''}</li>`;
+        });
+      return rows.length ? `<span class="label">Histórico de alterações:</span><ol class="hist">${rows.join('')}</ol>` : '';
+    }
+
+    // Optional "v0"/"c0": the check as it was before a methodology review, kept visible for comparison
+    function createOrigHTML(item) {
+      if (typeof item.v0 !== 'string' || !item.v0.trim()) return '';
+      const seal = labels.c[item.c0];
+      return `<details class="orig"><summary>Checagem original${seal ? ` (selo anterior: ${escapeHTML(seal)})` : ''}</summary><p>${escapeHTML(item.v0)}</p></details>`;
+    }
+
+    // Optional "outras": what independent agencies concluded about this same statement (METODOLOGIA.md, section 8)
+    function createOutrasHTML(outras) {
+      const rows = (Array.isArray(outras) ? outras : [])
+        .filter(o => o && typeof o === 'object' && typeof o.agencia === 'string' && o.agencia.trim())
+        .map(o => {
+          let url = '';
+          try { const u = new URL(o.url); if (u.protocol === 'https:' || u.protocol === 'http:') url = u.href; } catch {}
+          return `<li>${escapeHTML(o.agencia)}: <b>${escapeHTML(o.rotulo || 'ver checagem')}</b>${url ? ` <a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">ver</a>` : ''}</li>`;
+        });
+      return rows.length ? `<span class="label">Outras agências sobre esta fala:</span><ul class="outras">${rows.join('')}</ul>` : '';
+    }
+
+    function formatWhen(iso) {
+      if (typeof iso !== 'string' || !iso) return '';
+      const d = new Date(iso);
+      if (isNaN(d)) return iso;
+      return d.toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    }
+
+    // "Contestar": opens a prefilled issue from the template; any citizen or campaign uses the same channel
+    function createContestHTML(item) {
+      if (item.id == null) return '';
+      const q = new URLSearchParams({
+        template: 'contestar-checagem.yml',
+        title: `[Contestação] id ${item.id}: `,
+        post: String(item.id),
+      });
+      return `<a class="contest" href="${REPO}/issues/new?${escapeHTML(q.toString())}" target="_blank" rel="noopener noreferrer">Contestar esta checagem</a>`;
+    }
+
     function escapeHTML(str) {
       return String(str ?? '').replace(/[&<>'"]/g,
         tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
       );
     }
 
-    // Optional "h" (time of the statement) and "a" (topic), shown on top of the card
+    // Optional "h" (time of the statement), "a" (topic), "chk" (who checked and reviewed) and "ia"
+    // (drafted with AI, then reviewed), shown on top of the card
     function createMetaHTML(item) {
       const parts = [];
       if (item.h) parts.push(`<time>${escapeHTML(item.h)}</time>`);
       if (item.a) parts.push(`<span>${escapeHTML(item.a)}</span>`);
+      const chk = (Array.isArray(item.chk) ? item.chk : []).filter(x => typeof x === 'string' && x.trim());
+      if (chk.length) parts.push(`<span class="chk">Checagem e revisão: ${escapeHTML(chk.join(', '))}</span>`);
+      if (item.ia === true) parts.push(`<span class="chk">Rascunho com IA, revisado por pessoas</span>`);
       return parts.length ? `<div class="meta">${parts.join(' ')}</div>` : '';
     }
 
@@ -186,7 +283,7 @@
           <img src="/${labels.i[item.n]}" alt="" width="56" height="56" decoding="async" loading="lazy">
           <h2>${labels.n[item.n]}</h2>
           <div class="tags">
-            <span class="badge" data-c="${item.c}">${labels.c[item.c] || '?'}</span>
+            <span class="badge" data-c="${item.c}">${escapeHTML(labelText(item))}</span>
             ${self.cardExtra ? cardExtra(item) : ''}
           </div>
         </header>
@@ -197,32 +294,65 @@
         <span class="label">Verificação:</span>
         <p>${escapeHTML(item.v)}</p>
         ${createFixHTML(item.e)}
-        ${createSourcesHTML(item.s)}`;
+        ${createHistHTML(item.hist)}
+        ${createOrigHTML(item)}
+        ${createSourcesHTML(item.s)}
+        ${createOutrasHTML(item.outras)}
+        ${createContestHTML(item)}`;
       el.addEventListener('animationend', () => el.classList.remove('new'), { once: true });
       return el;
     }
 
-    const MIN_CHECKS = 3;
+    // Coverage panel. Shows absolute counts per label, side by side, and never a percentage of "truth":
+    // a percentage over hand-picked statements measures the selection, not the candidate.
+    const MIN_CHECKS = 3;       // each candidate needs this many verdicts before anything is shown
+    const MAX_GAP = 15;         // percentage points between candidates' shares of verdicts; above it, counts are withheld
+    const hasVerdict = item => item.c !== 0 && item.c !== 4;
 
-    function renderThermo(items) {
-      const score = { Verdadeiro: 1, Parcial: 0.5, Falso: 0 };
-      const groups = Object.keys(labels.n).map((n) => [n, items.filter((item) => item.n == n)]);
+    function labelKey(item) {
+      if (labels.r[item.r]) return item.r;
+      // Legacy posts (no "r"): group by the seal
+      return { 1: 'verdadeiro', 2: 'falso', 3: 'parcial', 4: 'nao_verificavel', 0: 'em_verificacao' }[item.c];
+    }
+
+    function renderPanel(items) {
+      const panel = document.querySelector('.panel');
+      const groups = Object.keys(labels.n).map(n => [n, items.filter(item => item.n == n)]);
+      const verdicts = groups.map(([, mine]) => mine.filter(hasVerdict).length);
+      const total = verdicts.reduce((a, b) => a + b, 0);
       // All or nothing: showing only some candidates would single them out
-      const ready = groups.every(([, mine]) => mine.length >= MIN_CHECKS);
-      const rows = !ready ? '' : groups.map(([n, mine]) => {
-        const pct = Math.round(mine.reduce((sum, item) => sum + score[labels.c[item.c]], 0) / mine.length * 100);
-        const count = `${mine.length} checagens`;
+      const ready = verdicts.every(v => v >= MIN_CHECKS);
+      if (!ready) {
+        panel.hidden = true;
+        return;
+      }
+      const shares = verdicts.map(v => Math.round(100 * v / total));
+      const gap = Math.max(...shares) - Math.min(...shares);
+      const even = gap <= MAX_GAP;
+
+      const order = [...Object.keys(labels.r).filter(k => k !== 'nao_verificavel' && k !== 'em_verificacao'), 'parcial'];
+      const names = { ...Object.fromEntries(Object.entries(labels.r).map(([k, v]) => [k, v[0]])), parcial: 'Parcial' };
+
+      const rows = groups.map(([n, mine], i) => {
+        const open = mine.filter(item => !hasVerdict(item)).length;
+        const counts = {};
+        for (const item of mine.filter(hasVerdict)) counts[labelKey(item)] = (counts[labelKey(item)] || 0) + 1;
+        const list = !even ? '' : `<ul class="panel-counts">${order.filter(k => counts[k]).map(k =>
+          `<li data-c="${labels.r[k] ? labels.r[k][1] : 3}"><b>${counts[k]}</b> ${escapeHTML(names[k])}</li>`).join('')}</ul>`;
         return `
-          <div class="thermo-row" role="img" aria-label="${labels.n[n]}: ${pct}% verdadeiro em ${count}">
+          <div class="panel-row">
             <img src="/${labels.i[n]}" alt="" width="32" height="32">
-            <span class="thermo-name">${labels.n[n]}<small>${count}</small></span>
-            <div class="thermo-bar"><span style="left: ${pct}%"></span></div>
-            <span class="thermo-pct">${pct}%</span>
+            <span class="panel-name">${labels.n[n]}<small>${verdicts[i]} ${verdicts[i] === 1 ? 'fala checada' : 'falas checadas'}${open ? ` · ${open} sem veredito` : ''}</small></span>
+            ${list}
           </div>`;
       }).join('');
-      const thermo = document.querySelector('.thermo');
-      thermo.querySelector('.thermo-rows').innerHTML = rows;
-      thermo.hidden = !rows;
+
+      panel.querySelector('.panel-rows').innerHTML = rows;
+      panel.querySelector('.panel-note').innerHTML = even
+        ? `Contagem do que foi checado até agora. Não é um placar de honestidade: a escolha das falas pesa mais que o veredito. <a href="/metodologia.html">Entenda</a>`
+        : `<b>Cobertura desigual:</b> ${Math.max(...shares)}% das falas checadas são de um só candidato, e as contagens por rótulo ficam suprimidas até a cobertura se equilibrar (diferença acima de ${MAX_GAP} pontos). Compare com as agências independentes abaixo. <a href="/metodologia.html">Entenda</a>`;
+      panel.classList.toggle('uneven', !even);
+      panel.hidden = false;
     }
 
     function canRender(item) {
@@ -280,7 +410,7 @@
       nodes = next;
       lastRaw = raw;
       currentPosts = items;
-      renderThermo(items.filter(canRender));
+      renderPanel(items.filter(canRender));
 
       const shared = location.hash && document.getElementById(location.hash.slice(1));
       if (shared) {
@@ -297,6 +427,68 @@
       return true;
     }
 
+    // Independent agencies' checks of the same event (externas.json). Shown as published by each one,
+    // never converted to a percentage; the fixed notice says the numbers are not comparable across sources.
+    const URI_EXTERNAS_JSON = '/externas.json';
+    const EXTERNAS_EVERY = 5 * 60 * 1000;
+    let lastExternasRaw = null, lastExternasAt = 0;
+
+    const prettyLabel = key => labelOf(key) === key
+      ? String(key).replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())
+      : labelOf(key);
+
+    function renderExternas(raw) {
+      let data;
+      try { data = JSON.parse(raw); } catch { return false; }
+      const section = document.querySelector('.externas');
+      const fontes = Array.isArray(data && data.fontes) ? data.fontes : [];
+      if (!fontes.length) {
+        section.hidden = true;
+        return true;
+      }
+      const safeURL = u => { try { const x = new URL(u); return (x.protocol === 'https:' || x.protocol === 'http:') ? x.href : ''; } catch { return ''; } };
+      const time = iso => { const t = formatWhen(iso); return t ? ` · ${t}` : ''; };
+
+      section.querySelector('.aviso').textContent = typeof data.aviso === 'string' && data.aviso.trim()
+        ? data.aviso
+        : 'Cada agência escolhe suas falas e usa sua própria escala. Os números não se somam nem se comparam diretamente.';
+
+      section.querySelector('.externas-rows').innerHTML = fontes.filter(f => f && typeof f === 'object').map(f => {
+        const url = safeURL(f.url);
+        const counts = f.por_candidato && typeof f.por_candidato === 'object' ? f.por_candidato : null;
+        const scale = (Array.isArray(f.escala) ? f.escala : []).filter(k => typeof k === 'string');
+        const rows = counts ? Object.keys(labels.n).filter(n => counts[n]).map(n => {
+          const c = counts[n];
+          const cells = scale.filter(k => Number(c[k]) > 0).map(k => `<li data-c="${labels.r[k] ? labels.r[k][1] : 3}"><b>${Number(c[k])}</b> ${escapeHTML(prettyLabel(k))}</li>`).join('');
+          return `<div class="panel-row">
+            <img src="/${labels.i[n]}" alt="" width="32" height="32">
+            <span class="panel-name">${labels.n[n]}<small>${Number(c.checadas) || 0} falas checadas</small></span>
+            <ul class="panel-counts">${cells}</ul>
+          </div>`;
+        }).join('') : '';
+        const status = { em_atualizacao: 'ainda em atualização na agência', reconsultar: 'totais ainda não publicados' }[f.status];
+        return `<details class="ext">
+          <summary>${escapeHTML(f.agencia || 'Agência')}${f.ifcn === true ? ' <small>signatária do IFCN</small>' : ''}<small>${rows ? time(f.atualizado_em) : (status ? ` · ${status}` : '')}</small></summary>
+          ${rows}
+          <p class="ext-foot">${f.consultado_em ? `Consultado em ${escapeHTML(formatWhen(f.consultado_em))}. ` : ''}${url ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">Ver na fonte</a>` : ''}</p>
+        </details>`;
+      }).join('');
+      section.hidden = false;
+      return true;
+    }
+
+    function updateExternas() {
+      if (Date.now() - lastExternasAt < EXTERNAS_EVERY) return;
+      lastExternasAt = Date.now();
+      const signal = AbortSignal.timeout ? AbortSignal.timeout(10000) : undefined;
+      fetch(`${URI_EXTERNAS_JSON}?v=${Date.now()}`, { signal })
+        .then(r => r.ok ? r.text() : Promise.reject(r.status))
+        .then(raw => {
+          if (raw !== lastExternasRaw && renderExternas(raw)) lastExternasRaw = raw;
+        })
+        .catch(() => {});  // optional file: a missing externas.json just leaves the section hidden
+    }
+
     const DELAY = 15000;
     const URI_POSTS_JSON = '/posts.json';
 
@@ -307,6 +499,7 @@
       clearTimeout(timer);
       if (busy || document.hidden) return Promise.resolve();
       busy = true;
+      updateExternas();
 
       // A hung request would keep busy set and block every later update
       const signal = AbortSignal.timeout ? AbortSignal.timeout(10000) : undefined;

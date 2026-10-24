@@ -44,8 +44,8 @@
     { bg: '#171717', ink: '#FAFAFA', ink2: '#D4D4D4', muted: '#A3A3A3', line: '#2E2E2E', soft: '#262626' },
   ];
 
-  // Same tones as .badge in style.css
-  const tones = { 1: '#15803D', 2: '#B91C1C', 3: '#C2410C' };
+  // Same tones as .badge in style.css (0 and 4 have no verdict: neutral)
+  const tones = { 0: '#6B7280', 1: '#15803D', 2: '#B91C1C', 3: '#C2410C', 4: '#6B7280' };
   const SANS = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
   const SERIF = 'Georgia, "Times New Roman", serif';
 
@@ -192,15 +192,22 @@
     const rowY = BOTTOM - 24 - 66;
     const lineY = rowY - 42;
 
-    // "Verificação": up to 4 lines, never reaching the divider
+    // "Verificação": up to 4 lines, never reaching the divider. When the card lists sources,
+    // the last line names them (the image should never travel without its source)
     const checkY = boxY + boxH + 60;
     const checkTextY = checkY + 33 + 24;
-    const room = Math.floor((lineY - 48 - checkTextY - 42) / 63) + 1;
+    const sources = [...card.querySelectorAll('.sources a')].map(a => a.textContent).slice(0, 3);
+    const room = Math.floor((lineY - 48 - checkTextY - 42) / 63) + 1 - (sources.length ? 1 : 0);
     label('Verificação:', X, checkY, t.muted);
     font(400, 42);
     ctx.fillStyle = t.ink2;
-    wrap(card.querySelector(':scope > p').textContent, R - X, Math.max(1, Math.min(4, room)))
-      .forEach((l, i) => ctx.fillText(l, X, checkTextY + i * 63));
+    const checkLines = wrap(card.querySelector(':scope > p').textContent, R - X, Math.max(1, Math.min(4, room)));
+    checkLines.forEach((l, i) => ctx.fillText(l, X, checkTextY + i * 63));
+    if (sources.length) {
+      font(400, 33);
+      ctx.fillStyle = t.muted;
+      ctx.fillText(wrap(`Fontes: ${sources.join(' · ')} · checagem revisável`, R - X, 1)[0], X, checkTextY + checkLines.length * 63 + 12);
+    }
 
     ctx.fillStyle = t.line;
     ctx.fillRect(X, lineY, R - X, 2);

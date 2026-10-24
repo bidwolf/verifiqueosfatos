@@ -1,452 +1,557 @@
 [
   {
+    "id": 1,
     "n": 2,
     "c": 3,
     "t": "O Brasil tem 11500 obras paralisadas atualmente",
     "v": "Sim, os relatórios mais recentes do Tribunal de Contas da União (TCU) indicam que o número de obras públicas paradas no país gira em torno de 11,5 mil a quase 12 mil contratos. No entanto, atribuir a responsabilidade exclusivamente ao Governo Federal é incorreto: a maioria esmagadora dessas intervenções é executada por municípios e estados via convênios, e as causas vão desde falhas técnicas e abandono de empresas até burocracias de licenciamento e repasses orçamentários."
   },
   {
+    "id": 2,
     "n": 2,
     "c": 2,
     "t": "Sou a favor da tarifa zero aos finais de semana",
     "v": "Flávio Bolsonaro (PL) criticou e se opôs à proposta do presidente Luiz Inácio Lula da Silva (PT) de implementar a tarifa zero no transporte público aos fins de semana"
   },
   {
+    "id": 3,
     "n": 2,
     "c": 2,
     "t": "O brasileiro perdeu poder de compra nos últimos 4 anos",
     "v": "Não, o brasileiro não perdeu poder de compra nos últimos quatro anos (2022-2026): o rendimento médio real do trabalho subiu de cerca de R$ 3.100-3.300 em 2022 para cerca de R$ 3.777 em meados de 2026 (PNAD Contínua/IBGE), o salário mínimo avançou de R$ 1.212 para R$ 1.621 com ganhos reais acima da inflação, e o mínimo compra mais cestas básicas hoje do que em 2022 (ex.: 1,8 vs. 1,62 em São Paulo), enquanto a inflação (IPCA) desacelerou após os picos de 2021-2022, embora o poder de compra de alimentos ainda esteja abaixo dos níveis pré-pandemia em algumas medições."
   },
   {
+    "id": 4,
     "n": 1,
     "c": 2,
     "t": "Flavio bolsonaro pediu que Trump taxasse o Brasil",
     "v": "Flávio Bolsonaro (PL) afirmou ter pedido pessoalmente ao governo de Donald Trump que não impusesse tarifas sobre produtos e empresas do Brasil."
   },
   {
+    "id": 5,
     "n": 2,
     "c": 3,
     "t": "Lula chamou o agro negócio de fascista",
     "v": "Em entrevista ao Jornal Nacional, em 25/08/2022, Lula utilizou a expressão 'agronegócio fascista e direitista' para se referir ao agro que não defende preservação ambiental mesmo que em seu governo, no Plano Safra 2024/2025, Lula tenha destinado impressionantes R$ 476 bilhões ao setor, somando os recursos para grandes produtores e agricultura familiar — o maior montante já registrado na história do programa."
   },
   {
+    "id": 6,
     "n": 2,
     "c": 1,
     "t": "MBA em Empreendedorismo e Desenvolvimento de Novos Negócios",
     "v": "Em agosto de 2026, divulgou publicamente seu certificado. Ressalva: Uma informação anterior sobre suposta pós-graduação em Ciências Políticas pela UFRJ foi desmentida pela universidade. Trata-se de outra formação, não do MBA mencionado no debate."
   },
   {
+    "id": 7,
     "n": 2,
     "c": 2,
     "t": "O Lula gastou 400 bilhões para se reeleger",
     "v": "O valor correto foi de 269bi"
   },
   {
+    "id": 8,
     "n": 2,
     "c": 2,
     "t": "A esquerda governou a Argentina por 20 anos",
     "v": "A afirmação de que a esquerda governou a Argentina por 20 anos ignora o mandato de Mauricio Macri, presidente de centro-direita. Na história recente do país (no recorte de 2003 a 2023), o espectro político de centro-esquerda, representado pelo Kirchnerismo e pelo peronismo, esteve no poder por 16 anos, e não de forma ininterrupta."
   },
   {
+    "id": 9,
     "n": 2,
     "c": 2,
     "t": "O governo Lula virou as costas para as tragedias de 2024 do Rio Grande do Sul",
     "v": "A afirmação é falsa: diante das enchentes históricas que atingiram o Rio Grande do Sul em maio de 2024, o governo federal executou uma das maiores mobilizações orçamentárias e logísticas de resposta a desastres da história do país. A atuação incluiu a criação de uma secretaria extraordinária para apoiar o estado, o envio imediato das Forças Armadas e da Força Nacional do SUS para resgates, a suspensão do pagamento e abatimento dos juros da dívida do estado com a União, além da liberação de pacotes que ultrapassaram R$ 100 bilhões entre socorro a fundo perdido, crédito subsidiado a empresas e produtores e programas diretos como o Auxílio Reconstrução (R$ 5,1 mil para mais de 430 mil famílias) e o Minha Casa, Minha Vida para desabrigados. Embora tenham ocorrido gargalos burocráticos e cobranças de empresários e prefeituras quanto ao ritmo de chegada de certos financiamentos e obras estruturais, os dados oficiais demonstram que a União não omitiu apoio nem virou as costas à população gaúcha."
   },
   {
+    "id": 10,
     "n": 2,
     "c": 2,
     "t": "Lula está morando no palácio de luxo",
     "v": "O presidente Luiz Inácio Lula da Silva reside no Palácio da Alvorada, que é a residência oficial dos chefes de Estado do Brasil. O Alvorada é um patrimônio público e histórico da União, inaugurado em 1958 durante o governo de Juscelino Kubitschek. Ele não pertence a nenhum presidente em caráter pessoal: trata-se do mesmo local onde moraram praticamente todos os ex-presidentes da República, incluindo Jair Bolsonaro, que viveu no palácio com sua família de 2019 a 2022 durante todo o seu mandato."
   },
   {
+    "id": 11,
     "n": 2,
     "c": 3,
     "t": "A transamazonica não é asfaltada por conta de interferências de órgãos ambientais",
     "v": "Não, a atuação dos órgãos ambientais não é o único e nem o principal motivo pelo qual a Rodovia Transamazônica (BR-230) não é totalmente asfaltada. A falta de pavimentação completa decorre de uma combinação complexa de desafios técnicos, geográficos, financeiros e de planejamento, que persistem desde a sua construção na década de 1970"
   },
   {
+    "id": 12,
     "n": 2,
     "c": 3,
     "t": "Eu vou ampliar a zona franca de Manaus",
     "v": "Durante a votação da Reforma Tributária em 2023, Flávio apresentou emendas para limitar as vantagens constitucionais concedidas à região amazônica — alegando na ocasião o risco de \"migração predatória\" de empresas do restante do país para Manaus gerando desemprego em outros estados —, além de ter apoiado publicamente as medidas do governo Jair Bolsonaro (como os decretos que cortaram o IPI nacional em até 35%, decisão que desidratava os incentivos da ZFM e que acabou travada pelo STF). Fontes: Amazonas Atual – Contrário à ZFM, Flávio Bolsonaro diz em Manaus que a Zona Franca é 'sagrada' | Revista Fórum – Flávio pediu retirada de benefícios da Zona Franca e agora chama modelo de sagrado | Rios de Notícias - Em Manaus, Flávio promete atrair investimentos e fortalecer ZFM"
   },
   {
+    "id": 13,
     "n": 1,
     "c": 1,
     "t": "A economia verde pode trazer mais dinheiro que criar gado ou plantar café",
     "v": "Sim, a economia verde já consegue superar o faturamento da pecuária convencional e das culturas tradicionais em vários cenários rurais do Brasil. A grande mudança está no fato de que atividades sustentáveis deixaram de ser apenas 'preservação' e se transformaram em negócios de alto rendimento."
   },
   {
+    "id": 14,
     "n": 1,
     "c": 3,
     "t": "A Transposição do Rio São Francisco é a maior obra de infraestrutura hídrica do mundo",
     "v": "A Transposição do Rio São Francisco (Projeto de Integração do Rio São Francisco - PISF) é considerada a maior obra de infraestrutura hídrica do Brasil e uma das maiores do mundo, mas não é a maior obra de engenharia do planeta em termos globais."
   },
   {
+    "id": 15,
     "n": 1,
     "c": 1,
     "t": "Ministro de meio ambiente dos Bolsonaro dizia que ia abrir a porteira…",
     "v": "O ex-ministro do Meio Ambiente era Ricardo Salles, que ficou conhecido pela frase 'ir passando a boiada' dita em uma reunião ministerial em 22 de abril de 2020. Na reunião gravada e divulgada por decisão do Supremo Tribunal Federal (STF), ele defendeu aproveitar o foco da imprensa na pandemia de COVID-19 para 'ir passando a boiada e mudando todo o regramento e simplificando normas' ambientais."
   },
   {
+    "id": 16,
     "n": 1,
     "c": 1,
     "t": "O Ceará é o estado que mais aprova para o ITA",
     "v": "Sim, o Ceará é um dos maiores destaques e frequentemente lidera ou concentra a maior proporção de aprovados no vestibular do Instituto Tecnológico de Aeronáutica (ITA)."
   },
   {
+    "id": 17,
     "n": 1,
     "c": 1,
     "t": "Levou super computador para o Rio Grande do Norte",
     "v": "Lula possibilitou a implantação de supercomputador de R$ 1 bilhão no RN para processamento de dados e IA."
   },
   {
+    "id": 18,
     "n": 1,
     "c": 1,
     "t": "Eu brought a indústria automobilística para o nordeste",
     "v": "As gestões do PT foram decisivas para consolidar, expandir e renovar esse parque industrial: em 2010, o governo Lula articulou com o então governador Eduardo Campos a atração do complexo da Fiat/Jeep (atual Stellantis) em Goiana (Pernambuco), prorrogou incentivos fiscais do setor e, mais recentemente no terceiro mandato, participou ativamente das negociações para atrair a chinesa BYD para assumir e eletrificar a antiga planta desativada pela Ford na Bahia."
   },
   {
+    "id": 19,
     "n": 2,
     "c": 2,
     "t": "Lula levou o comando vermelho para o nordeste",
     "v": "A afirmação é falsa: a interiorização e a chegada do Comando Vermelho (CV) ao Nordeste decorrem da dinâmica própria do crime organizado e da disputa internacional por rotas de narcotráfico, e não de qualquer ação ou política de Luiz Inácio Lula da Silva. Conforme pesquisas do Fórum Brasileiro de Segurança Pública (FBSP) e do Atlas da Violência, a nacionalização das facções sudestinas acelerou-se a partir de 2016 — período em que o PT já não estava no governo federal —, impulsionada pelo rompimento da aliança histórica entre o CV e o Primeiro Comando da Capital (PCC), pela transferência de lideranças carcerárias entre presídios estaduais e pela busca estratégica pelo controle de portos nordestinos (como Salvador, Fortaleza e Suape) para envio de cocaína à Europa e à África. O avanço da facção no Nordeste ocorreu por meio de cooptação, alianças ou confrontos sangrentos com bandos locais (como o Comando da Paz e o Bonde do Maluco na Bahia), constituindo um fenômeno estrutural de segurança pública amplamente documentado por especialistas. * Fontes: Fórum Brasileiro de Segurança Pública – A internacionalização e expansão do Comando Vermelho | Agência Brasil / Ipea – Atlas da Violência e a dinâmica das facções nos estados | G1 – Como o crime organizado avançou pelo território nacional"
   },
   {
+    "id": 20,
     "n": 2,
     "c": 3,
     "t": "O PT entregou nem 30% do que prometeu ao Rio Grande do Sul",
     "v": "O percentual não pode ser confirmado sem identificar quais promessas foram contabilizadas e quais entregas foram consideradas. O TCU registrou R$ 42,7 bilhões em créditos extraordinários autorizados para a recuperação do Rio Grande do Sul e R$ 26,1 bilhões pagos até julho de 2024. Esses números, porém, não permitem concluir qual proporção de todas as promessas foi cumprida. Anúncios, recursos autorizados, pagamentos e obras concluídas são indicadores diferentes."
   },
   {
+    "id": 21,
     "n": 2,
     "c": 3,
     "t": "Bolsonaro entregou a transposição do rio São Francisco",
     "v": "Não se tratou de uma obra concebida ou majoritariamente executada por sua gestão: iniciada em 2007 no governo Lula, a transposição já acumulava mais de 90% de execução física antes de Bolsonaro assumir o Planalto — atravessando as gestões Dilma Rousseff e Michel Temer (que inaugurou o Eixo Leste em 2017). Além disso, a sua gestão executou cerca de 5% a 7% do volume total das obras básicas, e o empreendimento integral continuou em andamento após 2022 por meio de ramais secundários e canais complementares (como os ramais do Apodi e do Salgado). Fontes: G1 – Fato ou Fake: Checagens sobre a transposição do Rio São Francisco | CNN Brasil – Dados da execução e eixos da transposição | Correio do Povo – Governo Federal anuncia conclusão do eixo principal da transposição"
   },
   {
+    "id": 22,
     "n": 2,
     "c": 3,
     "t": "É favorável ao Bolsa família e que Jair Bolsonaro aumentou o valor do bolsa família",
     "v": "Antes de ampliar Bolsa Família, Bolsonaro defendeu explícitamente o fim do benefício."
   },
   {
+    "id": 23,
     "n": 1,
     "c": 1,
     "t": "Flávio Bolsonaro votou contra o aumento da licença e auxílio maternidade",
     "v": "A afirmação é verdadeira: em abril de 2009, quando exercia o mandato de deputado estadual no Rio de Janeiro, Flávio Bolsonaro foi o único parlamentar da Assembleia Legislativa do Estado do Rio de Janeiro (Alerj) a votar contra a Proposta de Emenda Constitucional (promulgada como Emenda Constitucional Estadual nº 41/2009) que ampliou a licença-maternidade das servidoras públicas estaduais de 120 para 180 dias (quatro para seis meses)."
   },
   {
+    "id": 24,
     "n": 1,
     "c": 1,
     "t": "Flávio Bolsonaro chamou o bolsa família de bolsa farelo",
     "v": "A afirmação é verdadeira: em publicações antigas no X (antigo Twitter) — resgatadas por levantamento do jornal O Estado de S. Paulo —, Flávio Bolsonaro utilizou expressamente o termo \"bolsa-farelo\" ao atacar o programa de transferência de renda, acusando o PT de perpetuar a pobreza e usar o benefício com finalidade eleitoreira. Os registros mostram que, em junho de 2013, o então deputado estadual escreveu que o governo petista \"perpetua a pobreza com o bolsa-farelo\"; essas postagens foram apagadas do perfil do senador às vésperas do segundo turno da disputa presidencial de 2026, momento em que sua campanha passou a garantir a manutenção e o fortalecimento do benefício social."
   },
   {
+    "id": 25,
     "n": 2,
     "c": 3,
     "t": "Foi o Bolsonaro que elevou o Bolsa Familia a 600 reais",
     "v": "A frase omite um detalhe importante: o benefício de R$ 600 era temporário. Durante o governo Bolsonaro, o Bolsa Família foi substituído pelo Auxílio Brasil, e a Lei nº 14.342/2022 estabeleceu um benefício extraordinário que garantia o pagamento mínimo de R$ 400 por família. O aumento para R$ 600 ocorreu por meio da Emenda Constitucional nº 123, aprovada pelo Congresso em julho de 2022, que acrescentou R$ 200 ao valor do benefício. Esse adicional, porém, tinha prazo determinado: vigorou apenas de agosto a dezembro de 2022, coincidindo com o período da campanha eleitoral daquele ano."
   },
   {
+    "id": 26,
     "n": 1,
     "c": 3,
     "t": "O primeiro emprego do flavio. bolsonaro foi funcionario fantasma?",
     "v": "O primeiro emprego de Flávio Bolsonaro foi como assistente técnico na liderança do Partido Progressista Brasileiro (PPB) na Câmara dos Deputados, em Brasília, cargo que gerou acusações e indícios de que ele atuou como funcionário fantasma."
   },
   {
+    "id": 27,
     "n": 2,
     "c": 3,
     "t": "Moradores de rua dobraram durante o governo do Lula",
     "v": "A afirmação é parcialmente verdadeira (com contexto metodológico essencial): os números brutos do Cadastro Único (CadÚnico) de fato quase dobraram ao longo do terceiro mandato de Lula, saltando de 198,7 mil pessoas em dezembro de 2022 para cerca de 392,4 mil em 2026 (uma alta de 97,4%). Contudo, especialistas do Ipea, pesquisadores de assistência social e o Ministério do Desenvolvimento e Assistência Social (MDS) apontam que essa explosão nas estatísticas não significa necessariamente que a população física nas ruas duplicou de forma repentina, mas reflete em grande parte a busca ativa municipal, a superação de subnotificações dos anos anteriores e a inclusão de incentivos diretos de cadastramento, como a priorização dessa população no Bolsa Família e no plano Ruas Visíveis a partir de 2023. O aumento real existe e vem numa curva ascendente contínua há mais de uma década (impulsionada por desemprego, crise habitacional e desestruturação familiar), mas a taxa de quase 100% de alta expressa principalmente a maior visibilidade cadastral desse público nas bases de dados governamentais."
   },
   {
+    "id": 28,
     "n": 2,
     "c": 2,
     "t": "São Paulo acabou com a Cracolândia e tratou a saúde dos moradores de rua",
     "v": "A afirmação é falsa: a Cracolândia em São Paulo não acabou, nem houve uma resolução estrutural no tratamento de saúde dessa população. Dados de monitoramento da Prefeitura de São Paulo, do Laboratório de Estudos sobre Espaço Público e Direito à Cidade (LabCidade/USP) e de relatórios do Ministério Público de São Paulo (MPSP) apontam que as ações policiais e urbanísticas dos últimos anos resultaram na dispersão territorial do fluxo de usuários — que antes se concentrava em pontos como a Praça Princesa Isabel e a Rua Helvétia — em dezenas de pequenos agrupamentos ('minicracolândias') espalhados por bairros centrais como Santa Cecília, Campos Elíseos e Bom Retiro. Embora o poder público estadual e municipal tenha ampliado vagas em comunidades terapêuticas, inaugurado unidades do Hub de Cuidados em Crack e Outras Drogas e reforçado abordagens de saúde mental (CAPS e Consultórios na Rua), especialistas da Fiocruz e da USP destacam que a adesão continuada e a reabilitação em saúde permanecem em níveis criticamente baixos, marcadas pela baixa resolutividade clínica, recaídas frequentes e forte resistência dos usuários a intervenções de perfil compulsório ou asilar. Fontes: LabCidade/USP – Mapeamento da dispersão e dinâmica das cenas de uso no Centro de SP | Ministério Público do Estado de São Paulo – Atuação e relatórios sobre a política de drogas na Cracolândia | Fiocruz – Pesquisas sobre atenção psicossocial e vulnerabilidade nas cenas abertas de drogas"
   },
   {
+    "id": 29,
     "n": 2,
     "c": 2,
     "t": "Está tudo mais caro no governo do PT",
     "v": "Salário mínimo comprava 1,8 cesta básica durante o governo Jair Bolsonaro (2019-2022) e passou a comprar 2,2 cestas básicas no atual governo Lula, segundo declarações do próprio presidente em debate eleitoral, com base em dados do Departamento Intersindical de Estatística e Estudos Socioeconômicos (Dieese). Os preços subiram (~19% desde 2023), mas bem menos que no mandato anterior (~27%) e menos que a renda: o salário mínimo real subiu ~11% e o rendimento médio ~13%, então o poder de compra médio aumentou."
   },
   {
+    "id": 30,
     "n": 2,
     "c": 2,
     "t": "Quer expandir legislação para cuidar de animais silvestres",
     "v": "Sua atuação legislativa no Congresso Nacional é historicamente marcada por posições vistas por ambientalistas e biólogos como contrárias à proteção da vida silvestre: o senador votou e atuou a favor de projetos da bancada ruralista que flexibilizam o licenciamento ambiental, apoiou medidas que enfraquecem a fiscalização de órgãos como o Ibama e o ICMBio, e assinou propostas polêmicas voltadas à facilitação da caça esportiva e de controle de fauna silvestre (como a caça ao javali e a regulamentação de armas para atiradores/caçadores - CACs), além de ter defendido no passado pautas controversas como a liberação de cassinos em resorts integrados que afetariam áreas costeiras e de preservação marinha."
   },
   {
+    "id": 31,
     "n": 2,
     "c": 2,
     "t": "Em outubro de 2022, a previsão era que o Bolsonaro, caso eleito, tivesse taxa de juros de 7%",
     "v": "A afirmação é falsa: em outubro de 2022 (às vésperas do segundo turno), nenhuma projeção de consenso do mercado financeiro ou do Banco Central apontava que a taxa básica de juros (Selic) cairia para 7% em caso de vitória de Jair Bolsonaro. De acordo com os relatórios semanais do Boletim Focus do Banco Central daquele mês — que consolidam as estimativas de mais de 100 instituições financeiras e analistas —, a taxa Selic estava fixada em 13,75% ao ano e a mediana das projeções indicava que os juros terminariam o ano de 2023 em torno de 11,25% a 11,75%, projetando quedas graduais para patamares entre 8,0% e 8,5% apenas para o final de 2024 e 2025. Embora integrantes da campanha e o então ministro Paulo Guedes ventilassem narrativas de que a continuidade da agenda de reformas e a privatização de estatais pudessem acelerar o ciclo de cortes nos anos seguintes, o mercado jamais precificou formalmente juros nominais a 7% para o mandato subsequente, sobretudo diante da persistência da inflação global e das pressões fiscais já contratadas para 2023 (como a manutenção do Auxílio Brasil a R$ 600 fora do teto). Fontes: Banco Central do Brasil – Relatório de Mercado Focus (Séries Históricas de Outubro de 2022) | Valor Econômico – Projeções macroeconômicas e Selic no cenário eleitoral de 2022 | InfoMoney – Expectativas do mercado financeiro para juros e inflação pós-eleições 2022"
   },
   {
+    "id": 32,
     "n": 2,
     "c": 2,
     "t": "A projeção da taxa de juros ea de 7% caso Jair Bolsonaro continuasse no poder",
     "v": "Não há registro de que a previsão oficial da taxa Selic em outubro de 2022 fosse de 7% caso Jair Bolsonaro continuasse no poder. e a Taxa de Juros do país depende de uma série de fatores externos fora do controle do governo."
   },
   {
+    "id": 33,
     "n": 2,
     "c": 3,
     "t": "O CadÚnico (Cadastro Único) é um benefício social",
     "v": "Não, o CadÚnico (Cadastro Único) não é um benefício social em si. Ele funciona como um instrumento de registro e coleta de dados criado pelo Governo Federal para identificar e mapear as famílias de baixa renda que vivem no país. Na prática, o CadÚnico atua como a porta de entrada para diversos programas e políticas públicas. Estar inscrito não significa receber um valor financeiro automaticamente, mas é o requisito fundamental e obrigatório para poder solicitar e ter acesso a esses auxílios."
   },
   {
+    "id": 34,
     "n": 1,
     "c": 1,
     "t": "O PT herdou taxa de juros de 13% do governo Bolsonaro",
     "v": "A afirmação é verdadeira: em 1º de janeiro de 2023, quando Luiz Inácio Lula da Silva assumiu o terceiro mandato, a taxa básica de juros (Selic) estava fixada em 13,75% ao ano. Esse patamar havia sido definido pelo Comitê de Política Monetária (Copom) do Banco Central ainda em agosto de 2022, durante a gestão de Jair Bolsonaro, com o objetivo de conter a forte escalada inflacionária decorrente do pós-pandemia e das tensões geopolíticas globais, permanecendo congelado nesse nível até o início do ciclo de cortes em agosto de 2023. Fontes: Banco Central do Brasil – Histórico das Taxas de Juros (Copom) | G1 – Copom mantém taxa Selic em 13,75% ao ano na transição de governo."
   },
   {
+    "id": 35,
     "n": 1,
     "c": 1,
     "t": "Perdoamos a divida dos MEI e aumentamos o número de funcionarios",
     "v": "O presidente Luiz Inácio Lula da Silva sancionou em 21 de outubro de 2026 a Lei Complementar nº 238/2026 (parte do pacote Prospera MEI), que traz mudanças importantes para os Microempreendedores Individuais, incluindo perdão de dívidas."
   },
   {
+    "id": 36,
     "n": 1,
     "c": 1,
     "t": "Ninguém nunca fez mais crédito do que o PT fez",
     "v": "A afirmação é verdadeira: os governos petistas lideraram a maior expansão de crédito da história do Brasil, tanto em volume financeiro quanto em proporção da economia. Segundo dados da série histórica do Banco Central, as operações de crédito total saltaram de cerca de 24% do PIB em 2003 para mais de 53% do PIB em 2014, impulsionadas pela criação do crédito consignado, pelo uso intensivo de bancos públicos (BNDES, Caixa e Banco do Brasil) para financiar empresas e habitação (Minha Casa, Minha Vida), e pelo fortalecimento do crédito rural (Plano Safra) e estudantil (FIES), patamar estrutural de democratização financeira jamais igualado por outras gestões no país."
   },
   {
+    "id": 37,
     "n": 1,
     "c": 1,
     "t": "Planeja comprar a dívida de pessoas físicas",
     "v": "Sim. O presidente Luiz Inácio Lula da Silva anunciou formalmente uma medida nesse sentido por meio da fase Desenrola 3.0, voltada para que o governo passe a comprar diretamente carteiras de dívidas de pessoas físicas e MEIs junto ao sistema bancário."
   },
   {
+    "id": 38,
     "n": 2,
     "c": 2,
     "t": "O Lula criou ou aumentou mais de 30 impostos no último mandato",
     "v": "A afirmação é exagerada e enganosa do ponto de vista tributário formal, embora tenha base no avanço da arrecadação: o governo Lula não criou 30 tributos novos — o sistema tributário brasileiro possui cerca de uma dúzia de tributos federais principais previstos na Constituição —, mas implementou mais de 20 medidas arrecadatórias focadas em recompor receitas fiscais. Entre elas destacam-se o fim da isenção de compras internacionais até US$ 50 ('taxa das blusinhas'), a tributação de fundos exclusivos (super-ricos) e offshores, a volta da reoneração de combustíveis (PIS/Cofins), mudanças no Carf, limitação de benefícios do ICMS em subvenções e a taxação de apostas esportivas (bets); críticos somam reonerações, alterações de alíquotas setoriais e portarias para inflar a conta acima de 30 'aumentos', mas analistas da FGV e do Ipea apontam que a maior parte foi corte de desonerações e fechamento de brechas fiscais prévias."
   },
   {
+    "id": 39,
     "n": 2,
     "c": 2,
     "t": "Há falta de dipirona nas unidades básicas de saúde",
     "v": "Não há uma falta, há janela de reposição de estoques pontuais como acontece com qualquer serviço além de que a responsabilidade é do governo Municipal. Fora que essa reposição não é de responsabilidade direta do governo federal."
   },
   {
+    "id": 40,
     "n": 1,
     "c": 1,
     "t": "O Bolsonaro debochou e imitou pessoas sufocando por causa da COVID",
     "v": "A afirmação é verdadeira: durante transmissões ao vivo oficiais nas redes sociais em março e maio de 2021 — no auge da pandemia de Covid-19 —, Jair Bolsonaro imitou repetidamente pessoas com falta de ar e sufocando ao ironizar as orientações médicas e sanitárias de isolamento recomendadas pelo ex-ministro da Saúde Luiz Henrique Mandetta. Nas ocasiões, ele puxou o ar pela boca com dificuldade e debochou: 'fica em casa e, quando estiver sentindo falta de ar [faz a encenação ofegante], vai para o hospital fazer o quê se não tem remédio?' — episódios que foram amplamente registrados em vídeo, incluídos no relatório final da CPI da Pandemia no Senado e resgatados nacionalmente durante as sabatinas eleitorais de 2022. Fontes: G1 – Bolsonaro imitou paciente com falta de ar durante transmissões ao vivo em 2021 | Estado de Minas – Bolsonaro imita pessoa com falta de ar durante live nas redes | Senado Federal – Relatório Final da CPI da Pandemia"
   },
   {
+    "id": 41,
     "n": 2,
     "c": 2,
     "t": "Lula não fez nada para ajudar a dívida das Santas Casas",
     "v": "A afirmação é falsa: o governo Lula adotou medidas legislativas e financeiras de socorro às Santas Casas e hospitais filantrópicos, como a liberação de cerca de R$ 2 bilhões em auxílios emergenciais pelo Ministério da Saúde em 2023 e a sanção da lei que prorrogou o uso de recursos do FGTS até 2030 para linhas de crédito especiais, liberando mais de R$ 2 bilhões para refinanciar e alongar débitos com prazos estendidos e juros reduzidos; contudo, entidades como a Confederação das Santas Casas (CMB) ressalvam que o socorro é paliativo e não extingue a crise estrutural, mantendo o setor com endividamento bilionário devido à defasagem histórica da tabela de procedimentos do SUS. Fontes: Metrópoles – Lula sanciona lei para uso do FGTS em crédito a Santas Casas | JOTA – Santas Casas e hospitais filantrópicos buscam renegociação de dívida | Ministério da Saúde – Repasses emergenciais a entidades filantrópicas e Santas Casas"
   },
   {
+    "id": 42,
     "n": 2,
     "c": 3,
     "t": "Meu pai foi salvo de uma facada graças ao SUS",
     "v": "A Santa Casa é uma instituição privada, filantrópica e sem fins lucrativos, e não um hospital público estatal. Porém a santa casa atende demandas do SUS."
   },
   {
+    "id": 43,
     "n": 2,
     "c": 3,
     "t": "Tarcísio reduziu as filas do SUS em São Paulo",
     "v": "A afirmação é parcialmente verdadeira (com resultados mistos): a gestão de Tarcísio de Freitas em São Paulo realizou mutirões e criou a \"Tabela SUS Paulista\" — que remunera procedimentos acima da tabela federal para hospitais filantrópicos —, atingindo recordes na realização de cirurgias eletivas (mais de 1,2 milhão ao ano) e reduzindo a espera cirúrgica em várias regiões; por outro lado, levantamentos oficiais via LAI obtidos pela imprensa apontam que a fila de exames diagnósticos e consultas especializadas cresceu na rede estadual (superando 2,2 milhões de pessoas à espera, alta de 14,6%), refletindo a alta demanda reprimida do pós-pandemia e a migração de usuários de convênios médicos para o sistema público. Fontes: G1 – Fila para exames na rede estadual de saúde de SP cresce na gestão Tarcísio | Secretaria de Estado da Saúde de SP – Balanços do Mutirão de Cirurgias e Tabela SUS Paulista"
   },
   {
+    "id": 44,
     "n": 2,
     "c": 3,
     "t": "Lula disse 'se tá caro não compra!'",
     "v": "Parcialmente verdadeiro. Durante uma entrevista a rádios, Lula afirmou que 'se você vai no supermercado e desconfia que tal produto está caro, você não compra', argumentando que, sem vendas, os comerciantes seriam forçados a baixar os preços ou o produto iria estragar."
   },
   {
+    "id": 45,
     "n": 1,
     "c": 1,
     "t": "PT fez dois desenrolas e atendeu milhões de brasileiros",
     "v": "A afirmação é verdadeira: o governo Lula lançou o primeiro Desenrola Brasil em 2023, que beneficiou cerca de 15 milhões de pessoas (entre dívidas quitadas, desnegativações de até R$ 100 e renegociações com desconto), e ampliou a iniciativa com novas edições e fases (Desenrola 2.0 / Pequenos Negócios / Fies), atingindo mais milhões de pessoas físicas, estudantes e microempreendedores."
   },
   {
+    "id": 46,
     "n": 1,
     "c": 1,
     "t": "Criamos o MEI",
     "v": "Verdadeiro, criado em 2008 e em vigencia desde 2009"
   },
   {
+    "id": 47,
     "n": 1,
     "c": 3,
     "t": "O PT anunciou o perdão de 15 bilhões de dívidas para MEIs",
     "v": "Verdadeira, com ressalvas. A Lei Geral da Micro e Pequena Empresa foi instituída pela Lei Complementar nº 123/2006, sancionada por Lula. O MEI foi criado pela Lei Complementar nº 128/2008, também sancionada durante seu governo. As medidas foram aprovadas com participação do Congresso Nacional; portanto, atribuí-las exclusivamente ao presidente simplifica o processo legislativo."
   },
   {
+    "id": 48,
     "n": 1,
     "c": 1,
     "t": "Fizemos a lei geral da pequena e media empresa",
     "v": "A afirmação é verdadeira. A Lei Complementar nº 123, que instituiu o Estatuto Nacional da Microempresa e da Empresa de Pequeno Porte (conhecida como Lei Geral da Micro e Pequena Empresa), foi sancionada por Luiz Inácio Lula da Silva em 14 de dezembro de 2006, durante o seu primeiro mandato."
   },
   {
+    "id": 49,
     "n": 1,
     "c": 3,
     "t": "O Flávio Bolsonaro é contra acabar com as bets",
     "v": "A afirmação é parcialmente verdadeira (com distinção de modalidades): Flávio Bolsonaro se posicionou contra a proibição total das apostas esportivas (as bets de futebol), alegando respeito à segurança jurídica e a regras vigentes, mas defendeu proibir terminantemente os cassinos online (como o 'jogo do tigrinho'), apontando-os como causadores do endividamento das famílias."
   },
   {
+    "id": 50,
     "n": 1,
     "c": 2,
     "t": "O governo Bolsonaro aprovou o jogo do tigrinho",
     "v": "A afirmação é falsa: o jogo do tigrinho (cassino online) não foi aprovado pelo governo Bolsonaro. As apostas esportivas foram legalizadas em 2018 por Michel Temer, com prazo de regulamentação que expirou sem ação sob Bolsonaro."
   },
   {
+    "id": 51,
     "n": 2,
     "c": 2,
     "t": "O Lula zerou o orçamento federal para o ensino integral",
     "v": "O governo transferiu o custeio da política de escolas em tempo integral para dentro do Fundeb (Fundo de Manutenção e Desenvolvimento da Educação Básica), mantendo-o dentro da área da educação."
   },
   {
+    "id": 52,
     "n": 2,
     "c": 2,
     "t": "Lula é o pai do Tigrinho",
     "v": "As apostas esportivas e de quota fixa (as chamadas bets) foram legalizadas no Brasil em dezembro de 2018, por meio da Lei nº 13.756/2018, sancionada pelo então presidente Michel Temer."
   },
   {
+    "id": 53,
     "n": 1,
     "c": 3,
     "t": "O governo Bolsonaro deixou 5 mil creches e escolas paralisadas",
     "v": "A afirmação é exagerada: dados do Ministério da Educação (MEC) e do FNDE registraram cerca de 3,6 mil obras da educação básica paralisadas ou inacabadas ao fim de 2022 (e não 5 mil). A cifra de 5 mil infla o dado somando quadras e reformas, e auditorias do TCU mostram que boa parte dos entraves vinha se arrastando desde gestões anteriores por abandono de empreiteiras."
   },
   {
+    "id": 54,
     "n": 2,
     "c": 3,
     "t": "O governo Bolsonaro anistiou 99% das dívidas do FIES",
     "v": "A afirmação é parcial (com distorção de escopo): Bolsonaro sancionou a Lei 14.375/2022, que permitiu descontos de até 99% no saldo devedor, mas não houve anistia geral de 99% das dívidas. O abatimento máximo valeu apenas para inadimplentes há mais de 360 dias inscritos no CadÚnico ou Auxílio Brasil; os demais tiveram descontos menores (de 12% a 77%)."
   },
   {
+    "id": 55,
     "n": 1,
     "c": 1,
     "t": "Encontramos 5600 escolas paralisadas.",
     "v": "Verdadeiro. O levantamento inicial do Pacto Nacional mapeou exatamente 5.642 obras de educação básica financiadas pelo Fundo Nacional de Desenvolvimento da Educação (FNDE) que estavam travadas em 2022. "
-  },   
+  },
   {
+    "id": 56,
     "n": 2,
     "c": 2,
     "t": "A nota do PISA é uma das piores por conta do governo Lula",
     "v": "A afirmação é falsa: o baixo desempenho no Pisa é um problema histórico e estrutural do Brasil desde o início da avaliação em 2000, e não exclusividade de um governo. Os testes avaliam alunos de 15 anos — reflexo de toda a trajetória na educação básica —, com notas estagnadas sob FHC, Lula, Dilma, Temer e Bolsonaro, mantendo o país historicamente no terço inferior do ranking da OCDE."
   },
   {
+    "id": 57,
     "n": 2,
     "c": 3,
     "t": "O governo do PT acabou com os JEBs (Jogos Escolares Brasileiros)",
     "v": "Enganosa. Os Jogos Escolares Brasileiros tradicionais deixaram de ser realizados após 2004, durante o primeiro governo Lula, mas a interrupção se estendeu por diferentes governos e ocorreu em meio a mudanças no formato das competições escolares nacionais. Outras competições ocuparam esse espaço nesse período. Os JEBs foram retomados em 2021, durante o governo Bolsonaro. Assim, dizer que “o PT acabou com os JEBs” simplifica a história e atribui exclusivamente a um partido uma interrupção de 17 anos."
   },
   {
+    "id": 58,
     "n": 2,
     "c": 2,
     "t": "Declarou solidariedade para Ana Clara na platéia",
     "v": "Porém Ana Clara foi a vítima e não estava presente."
   },
   {
+    "id": 59,
     "n": 2,
     "c": 3,
     "t": "O Lula é a favor da saidinha dos presos",
     "v": "O presidente Luiz Inácio Lula da Silva defende a manutenção das saídas temporárias ('saidinhas') para detentos que possuem bom comportamento e cumprem penas por crimes não graves"
   },
   {
+    "id": 60,
     "n": 2,
     "c": 3,
     "t": "O Lula é contra a redução da maioridade penal",
     "v": "A afirmação é desatualizada: historicamente, Lula e o PT sempre se opuseram à redução da maioridade penal. Contudo, em sabatina recente em outubro de 2026, Lula mudou de posição e declarou ser a favor de reduzir a maioridade para 16 anos exclusivamente em casos de crimes hediondos (como estupro e latrocínio), defendendo que o debate ocorra em texto separado da PEC da Segurança."
   },
   {
+    "id": 61,
     "n": 1,
     "c": 3,
     "t": "Flávio Bolsonaro advogou em favor de um policial que atirou e matou uma criança de 5 anos",
     "v": "Verdadeira, com ressalvas. Flávio Bolsonaro integrou a defesa do policial militar Bruno Dias Delaroli, acusado pelo Ministério Público do Rio de Janeiro de matar Ana Clara Gomes Machado, de cinco anos, com um disparo de fuzil em Niterói, em 2021. Em 2024, Flávio assinou um recurso contra a decisão de levar o caso a júri popular, mas o STJ rejeitou o pedido. A afirmação de que ele defendeu juridicamente o policial é comprovada."
   },
   {
+    "id": 62,
     "n": 2,
     "c": 3,
     "t": "Vai aumentar a pena para ladrões de celular para 8 anos",
     "v": "A pena para roubo de celular já é de 8 anos. A pena base são 6 anos + 1/3 de fração mínima"
   },
   {
+    "id": 63,
     "n": 2,
     "c": 2,
     "t": "Lula defendeu ladrões que roubam celulares e compram 'cervejinha'",
-    "v": "A alegação já foi desmentida pelo Estadão Verifica em mais de uma ocasião (veja aqui e aqui). A peça desinformativa surgiu de uma antiga entrevista do petista, que foi editada para parecer que Lula defendeu o roubo de celular para ladrões tomarem uma “cervejinha”. Na entrevista original, ele não fala nada disso. https://www.estadao.com.br/estadao-verifica/deputados-impulsionaram-anuncios-com-boato-falso-sobre-lula-e-roubo-de-celular/?srsltid=AYCX9vJUjHGXIs5wXBGNfetGkQPSnGkZVy0OCPTU9fSlua_6FuJe8uME"
+    "v": "A alegação já foi desmentida pelo Estadão Verifica em mais de uma ocasião (veja aqui e aqui). A peça desinformativa surgiu de uma antiga entrevista do petista, que foi editada para parecer que Lula defendeu o roubo de celular para ladrões tomarem uma “cervejinha”. Na entrevista original, ele não fala nada disso. https://www.estadao.com.br/estadao-verifica/deputados-impulsionaram-anuncios-com-boato-falso-sobre-lula-e-roubo-de-celular/?srsltid=AYCX9vJUjHGXIs5wXBGNfetGkQPSnGkZVy0OCPTU9fSlua_6FuJe8uME",
+    "s": [
+      "https://www.estadao.com.br/estadao-verifica/deputados-impulsionaram-anuncios-com-boato-falso-sobre-lula-e-roubo-de-celular/?srsltid=AYCX9vJUjHGXIs5wXBGNfetGkQPSnGkZVy0OCPTU9fSlua_6FuJe8uME"
+    ]
   },
   {
+    "id": 64,
     "n": 2,
     "c": 3,
     "t": "O ex-PM não matou Ana Clara",
-    "v": "A afirmação é imprecisa juridicamente: o ex-PM foi apontado pela Polícia Civil e denunciado pelo Ministério Público como autor dos tiros de fuzil que mataram a menina Ana Clara (5 anos) em 2021, sendo pronunciado para ir a júri popular por homicídio qualificado, mas o julgamento ainda não ocorreu para determinar sua culpa ou absolvição: https://g1.globo.com/rj/rio-de-janeiro/noticia/2021/02/03/policial-preso-por-morte-de-menina-de-5-anos-em-niteroi-foi-indiciado-por-homicidio-qualificado.ghtml"
+    "v": "A afirmação é imprecisa juridicamente: o ex-PM foi apontado pela Polícia Civil e denunciado pelo Ministério Público como autor dos tiros de fuzil que mataram a menina Ana Clara (5 anos) em 2021, sendo pronunciado para ir a júri popular por homicídio qualificado, mas o julgamento ainda não ocorreu para determinar sua culpa ou absolvição: https://g1.globo.com/rj/rio-de-janeiro/noticia/2021/02/03/policial-preso-por-morte-de-menina-de-5-anos-em-niteroi-foi-indiciado-por-homicidio-qualificado.ghtml",
+    "s": [
+      "https://g1.globo.com/rj/rio-de-janeiro/noticia/2021/02/03/policial-preso-por-morte-de-menina-de-5-anos-em-niteroi-foi-indiciado-por-homicidio-qualificado.ghtml"
+    ]
   },
   {
+    "id": 65,
     "n": 2,
     "c": 2,
     "t": "Vai criar a casa da mulher brasileira",
     "v": "Este programa já existe desde 2015, tendo sido implementado originalmente no governo Dilma Rousseff, e reúne em um mesmo espaço serviços especializados para mulheres vítimas de violência."
   },
   {
+    "id": 66,
     "n": 1,
     "c": 3,
     "t": "Amigo de Flavio roubou a ilha do jogador Richarlison",
-    "v": "parcialmente verdade, há uma disputa judicial em andamento para a apuração dos fatos. O processo de posse que geralmente demora muito tempo foi feito em menos de uma semana para Willer Tomaz. Referencias: https://g1.globo.com/politica/noticia/2026/10/21/entenda-polemica-entre-richarlison-flavio-bolsonaro-e-willer-tomaz-ilha-em-angra.ghtml"
+    "v": "parcialmente verdade, há uma disputa judicial em andamento para a apuração dos fatos. O processo de posse que geralmente demora muito tempo foi feito em menos de uma semana para Willer Tomaz. Referencias: https://g1.globo.com/politica/noticia/2026/10/21/entenda-polemica-entre-richarlison-flavio-bolsonaro-e-willer-tomaz-ilha-em-angra.ghtml",
+    "s": [
+      "https://g1.globo.com/politica/noticia/2026/10/21/entenda-polemica-entre-richarlison-flavio-bolsonaro-e-willer-tomaz-ilha-em-angra.ghtml"
+    ]
   },
   {
+    "id": 67,
     "n": 2,
     "c": 3,
     "t": "Lula disse que vai acabar com a Polícia",
-    "v": "Ato falho - O governo de Lula não defende o fim das forças policiais, mas sim a integração das polícias por meio de propostas como a PEC da Segurança Pública (que busca ampliar a atuação conjunta da União, Polícia Federal, Polícia Rodoviária Federal e Polícia Penal) e o estímulo a mecanismos de controle e transparência, como o uso de câmeras corporais - https://noticias.uol.com.br/confere/ultimas-noticias/2023/01/20/flavio-dino-extincao-policia-militar-checagem.htm. O presidente Luiz Inácio Lula da Silva cometeu um ato falho (se atrapalhou) durante o debate da TV Globo contra o senador Flávio Bolsonaro, realizado na noite de 23 de outubro de 2026. Ao defender as suas propostas de segurança pública, o petista disse textualmente a frase: 'Você vai ver o que é um governo acabar, sabe, com a polícia e deixar o território livre'. No entanto, a análise do contexto e do restante da fala mostra que a intenção de Lula era prometer acabar com o crime organizado, e não com a instituição policial."
+    "v": "Ato falho - O governo de Lula não defende o fim das forças policiais, mas sim a integração das polícias por meio de propostas como a PEC da Segurança Pública (que busca ampliar a atuação conjunta da União, Polícia Federal, Polícia Rodoviária Federal e Polícia Penal) e o estímulo a mecanismos de controle e transparência, como o uso de câmeras corporais - https://noticias.uol.com.br/confere/ultimas-noticias/2023/01/20/flavio-dino-extincao-policia-militar-checagem.htm. O presidente Luiz Inácio Lula da Silva cometeu um ato falho (se atrapalhou) durante o debate da TV Globo contra o senador Flávio Bolsonaro, realizado na noite de 23 de outubro de 2026. Ao defender as suas propostas de segurança pública, o petista disse textualmente a frase: 'Você vai ver o que é um governo acabar, sabe, com a polícia e deixar o território livre'. No entanto, a análise do contexto e do restante da fala mostra que a intenção de Lula era prometer acabar com o crime organizado, e não com a instituição policial.",
+    "s": [
+      "https://noticias.uol.com.br/confere/ultimas-noticias/2023/01/20/flavio-dino-extincao-policia-militar-checagem.htm"
+    ]
   },
   {
+    "id": 68,
     "n": 2,
     "c": 2,
     "t": "O coronel do SPU não foi indicado por mim",
-    "v": "A afirmação é falsa: o coronel do Exército Paulo da Silva Medeiros, que chefiou a Superintendência do Patrimônio da União no Rio de Janeiro (SPU-RJ) a partir de 2019 e durante as decisões sobre o imóvel em Angra dos Reis, foi alçado ao cargo por apadrinhamento e indicação política direta de Flávio Bolsonaro: https://revistaforum.com.br/politica/mansao-em-angra-favorecimento-willer-tomaz-flavio-bolsonaro/"
+    "v": "A afirmação é falsa: o coronel do Exército Paulo da Silva Medeiros, que chefiou a Superintendência do Patrimônio da União no Rio de Janeiro (SPU-RJ) a partir de 2019 e durante as decisões sobre o imóvel em Angra dos Reis, foi alçado ao cargo por apadrinhamento e indicação política direta de Flávio Bolsonaro: https://revistaforum.com.br/politica/mansao-em-angra-favorecimento-willer-tomaz-flavio-bolsonaro/",
+    "s": [
+      "https://revistaforum.com.br/politica/mansao-em-angra-favorecimento-willer-tomaz-flavio-bolsonaro/"
+    ]
   },
   {
+    "id": 69,
     "n": 2,
     "c": 3,
     "t": "Lula recebeu garrafa de uísque de 500 mil reais",
-    "v": "Há mensagens liberadas pela policia federal de uma encomenda do Daniel Vorcaro, mas não há provas que o presente foi entregue. https://noticias.uol.com.br/politica/ultimas-noticias/2026/10/22/uisque-que-vorcaro-teria-dado-a-lula-custou-r-500-mil-apontam-mensagens.ghtm"
+    "v": "Há mensagens liberadas pela policia federal de uma encomenda do Daniel Vorcaro, mas não há provas que o presente foi entregue. https://noticias.uol.com.br/politica/ultimas-noticias/2026/10/22/uisque-que-vorcaro-teria-dado-a-lula-custou-r-500-mil-apontam-mensagens.ghtm",
+    "s": [
+      "https://noticias.uol.com.br/politica/ultimas-noticias/2026/10/22/uisque-que-vorcaro-teria-dado-a-lula-custou-r-500-mil-apontam-mensagens.ghtm"
+    ]
   },
   {
+    "id": 70,
     "n": 1,
     "c": 1,
     "t": "Flávio quer remover a numeração dos lotes das munições",
-    "v": "Verdadeiro, o projeto é apoiado oficialmente pelo Flávio Bolsonaro - https://oglobo.globo.com/brasil/noticia/2026/10/22/especialistas-veem-riscos-a-investigacao-com-retirada-da-marcacao-de-municoes-sugerida-em-projeto-de-flavio-bolsonaro.ghtml"
+    "v": "Verdadeiro, o projeto é apoiado oficialmente pelo Flávio Bolsonaro - https://oglobo.globo.com/brasil/noticia/2026/10/22/especialistas-veem-riscos-a-investigacao-com-retirada-da-marcacao-de-municoes-sugerida-em-projeto-de-flavio-bolsonaro.ghtml",
+    "s": [
+      "https://oglobo.globo.com/brasil/noticia/2026/10/22/especialistas-veem-riscos-a-investigacao-com-retirada-da-marcacao-de-municoes-sugerida-em-projeto-de-flavio-bolsonaro.ghtml"
+    ]
   },
   {
+    "id": 71,
     "n": 2,
     "c": 2,
     "t": "Polícia Federal disse que não teve dinheiro público no filme Dark Horse",
-    "v": "Investigação identificou que empresa de Fabiano Zettel, ex-pastor e braço-direito de Vorcaro, mandou R$ 12 milhões para a Entre Investimentos na véspera da primeira remessa aos EUA para pagar o filme sobre Jair Bolsonaro. Parte do dinheiro que Daniel Vorcaro enviou para os Estados Unidos para bancar o filme “Dark Horse”, a cinebiografia do ex-presidente Jair Bolsonaro, saiu de uma empresa de Fabiano Zettel ligada diretamente à fraude do banco Master. A conclusão é da Polícia Federal, em um despacho de 15 de outubro de 2026, obtido pelo Intercept Brasil. - https://www.intercept.com.br/2026/10/23/documento-pf-flavio-dinheiro-ilegal-vorcaro-dark-horse/"
+    "v": "Investigação identificou que empresa de Fabiano Zettel, ex-pastor e braço-direito de Vorcaro, mandou R$ 12 milhões para a Entre Investimentos na véspera da primeira remessa aos EUA para pagar o filme sobre Jair Bolsonaro. Parte do dinheiro que Daniel Vorcaro enviou para os Estados Unidos para bancar o filme “Dark Horse”, a cinebiografia do ex-presidente Jair Bolsonaro, saiu de uma empresa de Fabiano Zettel ligada diretamente à fraude do banco Master. A conclusão é da Polícia Federal, em um despacho de 15 de outubro de 2026, obtido pelo Intercept Brasil. - https://www.intercept.com.br/2026/10/23/documento-pf-flavio-dinheiro-ilegal-vorcaro-dark-horse/",
+    "s": [
+      "https://www.intercept.com.br/2026/10/23/documento-pf-flavio-dinheiro-ilegal-vorcaro-dark-horse/"
+    ]
   },
   {
+    "id": 72,
     "n": 2,
     "c": 2,
     "t": "Lula recebeu 30 milhões para filme “por fora”",
-    "v": "Falso, os próprios advogados de Daniel Vorcaro negaram a afirmação - https://www.cnnbrasil.com.br/eleicoes/vorcaro-cita-r-30-milhoes-a-filme-de-lula-o-que-sabemos-ate-agora/"
+    "v": "Falso, os próprios advogados de Daniel Vorcaro negaram a afirmação - https://www.cnnbrasil.com.br/eleicoes/vorcaro-cita-r-30-milhoes-a-filme-de-lula-o-que-sabemos-ate-agora/",
+    "s": [
+      "https://www.cnnbrasil.com.br/eleicoes/vorcaro-cita-r-30-milhoes-a-filme-de-lula-o-que-sabemos-ate-agora/"
+    ]
   },
   {
+    "id": 73,
     "n": 1,
     "c": 1,
     "t": "Enquanto morriam milhares de pessoas Bolsonaro estava fazendo festa em um barco",
-    "v": "O episódio refere-se a uma investigação jornalística detalhada sobre um passeio de barco no Lago Paranoá (Brasília) em 17 de julho de 2020, no auge da pandemia de Covid-19, quando o país registrava mais de mil mortes diárias pela doença (1.299 mortes registradas pelo consórcio de imprensa na véspera e 1.110 no próprio dia) - https://piaui.uol.com.br/web/flavio-bolsonaro-churrasco-lancha-vacina/"
+    "v": "O episódio refere-se a uma investigação jornalística detalhada sobre um passeio de barco no Lago Paranoá (Brasília) em 17 de julho de 2020, no auge da pandemia de Covid-19, quando o país registrava mais de mil mortes diárias pela doença (1.299 mortes registradas pelo consórcio de imprensa na véspera e 1.110 no próprio dia) - https://piaui.uol.com.br/web/flavio-bolsonaro-churrasco-lancha-vacina/",
+    "s": [
+      "https://piaui.uol.com.br/web/flavio-bolsonaro-churrasco-lancha-vacina/"
+    ]
   },
   {
+    "id": 74,
     "n": 2,
     "c": 1,
     "t": "Lulinha vive no mesmo bairro que jogadores famosos",
     "v": "Verdadeiro, Fábio Luís Lula da Silva, o Lulinha, mora no bairro de La Moraleja, uma área residencial de alto padrão no município de Alcobendas, na região metropolitana de Madri, na Espanha."
   },
   {
+    "id": 75,
     "n": 2,
     "c": 3,
     "t": "Lula foi condenado por ocultação de patrimônio",
     "v": "Parcialmente verdadeiro, apesar do presidente Lula ter sido condenado, o STF anulou todas as condenações impostas pela 13ª Vara Federal de Curitiba, declarando que o juízo de Curitiba era incompetente para julgar esses casos.."
-  }  
+  }
 ]

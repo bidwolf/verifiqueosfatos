@@ -4,6 +4,18 @@ Plataforma de verificação de declarações com Content Update automático. Con
 
 Instância produtiva em: https://verifiqueosfatos.com/
 
+## Metodologia
+
+Como as falas são escolhidas, classificadas, revisadas e contestadas está em [`METODOLOGIA.md`](METODOLOGIA.md) (publicado no site em `/metodologia.html`, gerado por `scripts/build_metodologia.py`). Em resumo:
+
+- **Mesma régua, mesma cobertura**: toda afirmação factual dos dois candidatos é registrada antes de alguém decidir o que checar; o que fica de fora também é público.
+- **Escala**: Verdadeiro · Falta contexto · Exagerado · Subestimado · Impreciso · Contraditório · Insustentável · Falso · Não verificável · Em verificação (campo `r`). Exagero não é mentira; opinião e promessa não recebem veredito.
+- **Fonte com link obrigatória** (campo `s`) em toda checagem nova com veredito. Negativa do interessado não refuta nada.
+- **Nada é apagado**: mudanças de veredito ficam no campo `hist` e aparecem no card; retiradas viram `c: 0` com `e`.
+- **Sem percentual de "verdade"**: o painel mostra contagens absolutas lado a lado e some quando a cobertura entre candidatos fica desigual.
+- **Checagens de agências independentes** para o mesmo evento ficam em `externas.json` e aparecem abaixo das checagens (ver [`OUTRAS-CHECAGENS.md`](OUTRAS-CHECAGENS.md)).
+- **Contestação**: todo card tem "Contestar esta checagem", que abre uma issue a partir de `.github/ISSUE_TEMPLATE/contestar-checagem.yml`.
+
 ## Arquitetura e Fluxo
 
 Esta aplicação é uma `PWA (Progressive Web App)` estática feita em vanilla `HTML/CSS/JS` com `Auto Update` sem necessidade de backend dedidcado, os arquivos devem ser servidos preferencialmente de maneira serverless. Recomenda-se uma CDN. Não há "backend", você só precisa de um host. Nesta Doc Section você entenderá o que acontece assim que um usuário acessa esta app, seja em modo local ou produtivo.
@@ -69,12 +81,17 @@ Este arquivo deve servir um Array de objetos com a seguinte estrutura:
   {
     "id": 1,
     "n": 1,
-    "c": 1,
+    "c": 3,
+    "r": "falta_contexto",
     "h": "21:34",
     "a": "Saúde",
     "t": "Aqui estará a declaração feita pelo candidato descrita o mais fielmente possível",
-    "v": "Aqui estará a verificação feita, com fontes e referências.",
-    "s": ["https://www.ibge.gov.br/", "https://www.bcb.gov.br/"]
+    "v": "Falta contexto. O dado, com período e base, e o contexto que muda a leitura.",
+    "s": ["https://www.ibge.gov.br/", "https://www.bcb.gov.br/"],
+    "e": "Rótulo alterado após revisão.",
+    "hist": [{ "de": "parcial", "para": "falta_contexto", "quando": "2026-10-23T23:12-03:00", "motivo": "fonte do TCU especifica o período" }],
+    "chk": ["@quem-checou", "@quem-revisou"],
+    "ia": false
   }
 ]
 ```
@@ -82,16 +99,28 @@ Este arquivo deve servir um Array de objetos com a seguinte estrutura:
 Onde:
 
 ```
-- `"id"` é um número inteiro positivo e único que identifica o post. É usado no link de compartilhar (`/#f1`), então nunca mude nem reaproveite o id de um post já publicado. Para um post novo, use o maior id + 1
+- `"id"` é um número inteiro positivo e único que identifica o post. É usado no link de compartilhar (`/#c1`) e no botão de contestar, então nunca mude nem reaproveite o id de um post já publicado. Para um post novo, use o maior id + 1
 - `"n"` é o Nome do candidato. 1 para Lula, 2 para Flávio.
-- `"c"` é o check status, 1 para Verdadeiro, 2 para Falso e 3 para Parcial
+- `"c"` é o selo curto: 0 Em verificação, 1 Verdadeiro, 2 Falso, 3 Parcial/ressalva, 4 Não verificável. Define a cor do card
+- `"r"` (opcional, recomendado) é o rótulo detalhado (METODOLOGIA.md, seção 4): verdadeiro, falta_contexto, exagerado, subestimado, impreciso, contraditorio (c=3), insustentavel, falso (c=2), nao_verificavel (c=4), em_verificacao (c=0). Precisa pertencer à família do "c"; quando presente, é o texto do selo
 - `"h"` (opcional) é o horário em que a fala aconteceu no debate, no formato HH:MM (ex: "21:34"). Aparece no topo do card
 - `"a"` (opcional) é o tema/assunto da fala, ex: "Saúde", "Economia", "Segurança". Aparece ao lado do horário, no topo do card
 - `"t"` é o `text`, basicamente a declaração feita pelo candidato
 - `"v"` é a verificação, ou seja: o texto de demonstrando o que foi verificado
+- `"s"` são as fontes: um array de URLs http(s), exibidas no card como links com o domínio de cada uma, sempre abertos em nova aba. Obrigatório (ao menos uma) em todo post com "r" e veredito (c 1, 2 ou 3); posts antigos sem "r" só recebem um aviso do validador
 - `"e"` (opcional) é a errata: um texto não vazio explicando o que foi corrigido, editado no mesmo item do posts.json
-- `"s"` (opcional) são as fontes: um array de URLs http(s), exibidas no card como links com o domínio de cada uma, sempre abertos em nova aba
+- `"hist"` (opcional) é o histórico de alterações de veredito: array de objetos {"de", "para", "quando", "motivo"}. Nada é apagado; o card mostra a lista
+- `"chk"` (opcional) lista quem checou e quem revisou (logins públicos). Aparece no topo do card
+- `"ia"` (opcional) é true quando o texto foi rascunhado com IA e revisado por pessoas. Aparece no topo do card
+- `"v0"` e `"c0"` (opcionais) guardam o texto e o selo da checagem como estavam antes de uma revisão pela metodologia; o card mostra em "Checagem original", recolhido
+- `"outras"` (opcional) lista o que agências independentes concluíram sobre a mesma fala: array de {"agencia", "rotulo", "url"}. Aparece após as fontes
 ```
+
+Posts sem veredito (`c` 0 ou 4) não entram nas contagens do painel de cobertura. O painel só aparece quando cada candidato tem ao menos 3 falas checadas, e suprime as contagens por rótulo quando um candidato concentra mais de 57,5% das checagens (diferença acima de 15 pontos) — nesse caso mostra só o aviso de cobertura desigual.
+
+### O arquivo "externas.json"
+
+Opcional, servido ao lado do `posts.json` e também fora do cache do service worker. Traz as checagens que agências independentes publicaram sobre o mesmo evento, nos números que elas mesmas publicaram, com link e horário de consulta. A estrutura e os critérios de inclusão estão em [`OUTRAS-CHECAGENS.md`](OUTRAS-CHECAGENS.md). Se o arquivo não existir, a seção simplesmente não aparece.
 
 Cada objeto no array seguindo essa estrutura será renderizado como um card contendo foto e as informações checadas. Caso posts.json falhe ou seja inválido a página falhará silenciosamente e manterá o estado atual válido. Este objeto é configurado assim pra que possa ser distribuído com custo mínimo. Você pode mudar imagens e os labels editando a index.html. 
 
