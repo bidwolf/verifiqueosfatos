@@ -400,6 +400,102 @@ main.loading:empty::after {
 }
 
 /* Painel de cobertura e bloco de checagens externas: contagens absolutas, lado a lado, sem percentual */
+/* Fatômetro */
+.thermo {
+  display: grid;
+  grid-template-columns: 32px auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.thermo[hidden] {
+  display: none;
+}
+
+.thermo h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.thermo-rows,
+.thermo-row {
+  display: contents;
+}
+
+.thermo-row img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.thermo-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.thermo-name small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.thermo-bar {
+  position: relative;
+  height: 10px;
+  background: linear-gradient(to right, #B91C1C, #EAB308, #15803D);
+  border-radius: 99px;
+}
+
+.thermo-bar span {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: var(--surface);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: left .6s ease;
+}
+
+.thermo-pct {
+  min-width: 4ch;
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.thermo-scale {
+  grid-column: 3;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thermo-bar span {
+    transition: none;
+  }
+}
+
+.thermo h3 small {
+  margin-left: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
 .panel,
 .externas {
   margin-bottom: 20px;
